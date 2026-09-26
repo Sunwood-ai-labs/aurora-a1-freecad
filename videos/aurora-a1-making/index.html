@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0c0b14;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0c0b14;
+        font-family: "Noto Sans JP", sans-serif;
+        color: #edeaf6;
+      }
+      .layer {
+        position: absolute;
+        inset: 0;
+      }
+      #bg-plate {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-277t" id="root" data-composition-id="main" data-start="0" data-duration="106" data-width="1920" data-height="1080">
+      <img data-hf-id="hf-p3y5" id="bg-plate" class="clip" src="assets/renders/plate_bg.png" alt="" data-start="0" data-duration="106" data-track-index="0">
+
+      <div data-hf-id="hf-cmc7" id="s01-intro" class="layer" data-composition-id="s01-intro" data-composition-src="compositions/frames/01-intro.html" data-start="0" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-oekg" id="s02-connect" class="layer" data-composition-id="s02-connect" data-composition-src="compositions/frames/02-connect.html" data-start="8" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-1tl7" id="s03-input" class="layer" data-composition-id="s03-input" data-composition-src="compositions/frames/03-input.html" data-start="16" data-duration="10" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-tbta" id="s04-dims" class="layer" data-composition-id="s04-dims" data-composition-src="compositions/frames/04-dims.html" data-start="26" data-duration="10" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-grbk" id="s05-script" class="layer" data-composition-id="s05-script" data-composition-src="compositions/frames/05-script.html" data-start="36" data-duration="12" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-9i9v" id="s06-build" class="layer" data-composition-id="s06-build" data-composition-src="compositions/frames/06-build.html" data-start="48" data-duration="14" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-g6eb" id="s07-fix" class="layer" data-composition-id="s07-fix" data-composition-src="compositions/frames/07-fix.html" data-start="62" data-duration="18" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-udsu" id="s08-explode" class="layer" data-composition-id="s08-explode" data-composition-src="compositions/frames/08-explode.html" data-start="80" data-duration="10" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-2kk4" id="s09-export" class="layer" data-composition-id="s09-export" data-composition-src="compositions/frames/09-export.html" data-start="90" data-duration="6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-79pm" id="s10-outro" class="layer" data-composition-id="s10-outro" data-composition-src="compositions/frames/10-outro.html" data-start="96" data-duration="10" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-xd3c" id="overlay" class="layer" data-composition-id="overlay" data-composition-src="compositions/overlay.html" data-start="0" data-duration="106" data-track-index="2" data-width="1920" data-height="1080"></div>
+
+      <audio data-hf-id="hf-f0qf" id="bgm" src=".media/audio/bgm/bgm_001.mp3" data-start="0" data-duration="106" data-track-index="10" data-volume="0.9"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

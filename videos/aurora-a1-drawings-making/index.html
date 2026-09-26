@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0c0b14;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0c0b14;
+        font-family: "Noto Sans JP", sans-serif;
+        color: #edeaf6;
+      }
+      .layer {
+        position: absolute;
+        inset: 0;
+      }
+      #bg-plate {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-277t" id="root" data-composition-id="main" data-start="0" data-duration="106" data-width="1920" data-height="1080">
+      <img data-hf-id="hf-p3y5" id="bg-plate" class="clip" src="assets/renders/plate_bg.png" alt="" data-start="0" data-duration="106" data-track-index="0">
+
+      <div data-hf-id="hf-hs0s" id="s01-intro" class="layer" data-composition-id="s01-intro" data-composition-src="compositions/frames/01-intro.html" data-start="0" data-duration="8.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-pzs6" id="s02-ask" class="layer" data-composition-id="s02-ask" data-composition-src="compositions/frames/02-ask.html" data-start="8" data-duration="8.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-alkl" id="s03-plan" class="layer" data-composition-id="s03-plan" data-composition-src="compositions/frames/03-plan.html" data-start="16" data-duration="10.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-7xwe" id="s04-probe" class="layer" data-composition-id="s04-probe" data-composition-src="compositions/frames/04-probe.html" data-start="26" data-duration="10.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-juy9" id="s05-bspline" class="layer" data-composition-id="s05-bspline" data-composition-src="compositions/frames/05-bspline.html" data-start="36" data-duration="12.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-dkq6" id="s06-automate" class="layer" data-composition-id="s06-automate" data-composition-src="compositions/frames/06-automate.html" data-start="48" data-duration="14.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-ajal" id="s07-sections" class="layer" data-composition-id="s07-sections" data-composition-src="compositions/frames/07-sections.html" data-start="62" data-duration="18.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-tahu" id="s08-bom" class="layer" data-composition-id="s08-bom" data-composition-src="compositions/frames/08-bom.html" data-start="80" data-duration="10.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-nj7b" id="s09-export" class="layer" data-composition-id="s09-export" data-composition-src="compositions/frames/09-export.html" data-start="90" data-duration="6.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div data-hf-id="hf-79pm" id="s10-outro" class="layer" data-composition-id="s10-outro" data-composition-src="compositions/frames/10-outro.html" data-start="96" data-duration="10" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <div data-hf-id="hf-xd3c" id="overlay" class="layer" data-composition-id="overlay" data-composition-src="compositions/overlay.html" data-start="0" data-duration="106" data-track-index="2" data-width="1920" data-height="1080"></div>
+
+      <audio data-hf-id="hf-f0qf" id="bgm" src=".media/audio/bgm/bgm_001.mp3" data-start="0" data-duration="106" data-track-index="10" data-volume="0.9"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // After-Effects style cuts: both scenes are live for 0.5 s around each cut (slots overlap).
+      const CUTS = [
+        { t: 8, o: "#s01-intro", n: "#s02-ask", k: "zoom" },
+        { t: 16, o: "#s02-ask", n: "#s03-plan", k: "zoom" },
+        { t: 26, o: "#s03-plan", n: "#s04-probe", k: "zoom" },
+        { t: 36, o: "#s04-probe", n: "#s05-bspline", k: "zoom" },
+        { t: 48, o: "#s05-bspline", n: "#s06-automate", k: "glitch" },
+        { t: 62, o: "#s06-automate", n: "#s07-sections", k: "leak" },
+        { t: 80, o: "#s07-sections", n: "#s08-bom", k: "zoom" },
+        { t: 90, o: "#s08-bom", n: "#s09-export", k: "zoom" },
+        { t: 96, o: "#s09-export", n: "#s10-outro", k: "dissolve" },
+      ];
+      const rest = { scale: 1, scaleX: 1, x: 0, opacity: 1, filter: "blur(0px) brightness(1)" };
+      CUTS.forEach(({ t, o, n, k }) => {
+        if (k === "zoom") {
+          // cinematic zoom-through: old punches past the lens, new resolves out of soft focus
+          tl.fromTo(o, rest, { scale: 1.32, opacity: 0, filter: "blur(16px) brightness(1.25)", duration: 0.45, ease: "power3.in", immediateRender: false }, t - 0.05);
+          tl.fromTo(n, { scale: 0.8, opacity: 0, filter: "blur(14px) brightness(1.2)" }, { ...rest, duration: 0.6, ease: "expo.out", immediateRender: false }, t);
+        } else if (k === "glitch") {
+          tl.set(n, { opacity: 0 }, t);
+          // digital break: horizontal stretch + stepped settle (overlay adds RGB bands and flash)
+          tl.fromTo(o, rest, { scaleX: 1.45, opacity: 0, filter: "blur(4px) brightness(1.6)", duration: 0.22, ease: "steps(4)", immediateRender: false }, t - 0.05);
+          tl.fromTo(n, { scaleX: 1.5, opacity: 0, filter: "blur(6px) brightness(1.8)" }, { ...rest, duration: 0.42, ease: "power4.out", immediateRender: false }, t + 0.08);
+        } else if (k === "leak") {
+          tl.set(n, { opacity: 0 }, t);
+          // overexposure burn: old blows out to light, new develops out of it (overlay adds the leak sweep)
+          tl.fromTo(o, rest, { scale: 1.08, opacity: 0, filter: "blur(10px) brightness(2.6)", duration: 0.6, ease: "power2.in", immediateRender: false }, t - 0.2);
+          tl.fromTo(n, { scale: 1.06, opacity: 0, filter: "blur(10px) brightness(2.4)" }, { ...rest, duration: 0.9, ease: "power3.out", immediateRender: false }, t + 0.05);
+        } else {
+          tl.fromTo(o, rest, { opacity: 0, filter: "blur(22px) brightness(1)", duration: 0.5, ease: "sine.inOut", immediateRender: false }, t);
+        }
+      });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

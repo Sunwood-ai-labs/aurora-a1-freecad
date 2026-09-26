@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .s05-head {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1700px;
+        }
+        .s05-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .s05-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .s05-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #s05-code {
+          position: absolute;
+          left: 110px;
+          top: 420px;
+          width: 1010px;
+          height: 580px;
+          border: 2px solid #2e2945;
+          background: #16131f;
+        }
+        #s05-tab {
+          height: 54px;
+          border-bottom: 2px solid #2e2945;
+          display: flex;
+          align-items: center;
+          padding: 0 24px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 22px;
+          color: #a49ebe;
+        }
+        #s05-tab b {
+          color: #edeaf6;
+          font-weight: 700;
+          margin-left: 10px;
+        }
+        #s05-text {
+          padding: 22px 28px;
+          font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+          font-size: 23px;
+          line-height: 1.55;
+          white-space: pre;
+          color: #edeaf6;
+          font-variant-ligatures: none;
+        }
+        #s05-tree {
+          position: absolute;
+          left: 1190px;
+          top: 420px;
+          width: 620px;
+        }
+        #s05-tree-title {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 24px;
+          letter-spacing: 0.08em;
+          color: #a77bff;
+          margin-bottom: 16px;
+        }
+        .s05-row {
+          display: grid;
+          grid-template-columns: 250px 70px 1fr;
+          align-items: center;
+          gap: 16px;
+          padding: 12px 0;
+          border-bottom: 2px solid #2e2945;
+          transform-origin: 0% 50%;
+        }
+        .s05-name {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 26px;
+        }
+        .s05-name::before {
+          content: "└ ";
+          color: #a49ebe;
+        }
+        .s05-n {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 28px;
+          text-align: right;
+          font-variant-numeric: tabular-nums;
+          color: #a77bff;
+        }
+        .s05-bar {
+          height: 12px;
+          background: #2e2945;
+          position: relative;
+          width: 100%;
+        }
+        .s05-bar i {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          background: #a77bff;
+          transform-origin: 0 50%;
+        }
+        #s05-total {
+          margin-top: 18px;
+          font-size: 30px;
+          font-weight: 700;
+        }
+        #s05-total span {
+          font-family: "JetBrains Mono", monospace;
+          color: #a77bff;
+        }
+      </style>
+
+      <div data-hf-id="hf-y79d" id="root" data-composition-id="s05-script" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-mhah" class="s05-head">
+          <span data-hf-id="hf-9o9l" class="s05-tag" id="s05-tag">STEP 04</span>
+          <span data-hf-id="hf-6n8k" class="s05-h1" id="s05-h1">スクリプト</span>
+          <span data-hf-id="hf-2034" class="s05-sub" id="s05-sub">形状も階層も、608 行のパラメトリック Python 1 本で書く</span>
+        </div>
+
+        <div data-hf-id="hf-wl5x" id="s05-code">
+          <div data-hf-id="hf-ivlb" id="s05-tab">aurora_a1/<b data-hf-id="hf-sc2w">build_aurora_a1.py</b></div>
+          <div data-hf-id="hf-onkb" id="s05-text"><span data-hf-id="hf-y6ft" id="s05-body"></span></div>
+        </div>
+
+        <div data-hf-id="hf-8p5u" id="s05-tree">
+          <div data-hf-id="hf-67dc" id="s05-tree-title">AURORA_A1_Assembly · App::Part</div>
+          <div data-hf-id="hf-kztl" class="s05-row"><span data-hf-id="hf-9upd" class="s05-name">Chassis</span><span data-hf-id="hf-lkwq" class="s05-n">11</span><span data-hf-id="hf-2v0h" class="s05-bar"><i data-hf-id="hf-yes5" data-v="11"></i></span></div>
+          <div data-hf-id="hf-ww8d" class="s05-row"><span data-hf-id="hf-gv7w" class="s05-name">Aerodynamics</span><span data-hf-id="hf-orcy" class="s05-n">19</span><span data-hf-id="hf-l7yt" class="s05-bar"><i data-hf-id="hf-4rkt" data-v="19"></i></span></div>
+          <div data-hf-id="hf-y35g" class="s05-row"><span data-hf-id="hf-qqbu" class="s05-name">PowerUnit</span><span data-hf-id="hf-krpa" class="s05-n">11</span><span data-hf-id="hf-mevw" class="s05-bar"><i data-hf-id="hf-54zt" data-v="11"></i></span></div>
+          <div data-hf-id="hf-xouf" class="s05-row"><span data-hf-id="hf-no2d" class="s05-name">Drivetrain</span><span data-hf-id="hf-6vyb" class="s05-n">5</span><span data-hf-id="hf-m0kv" class="s05-bar"><i data-hf-id="hf-ddu0" data-v="5"></i></span></div>
+          <div data-hf-id="hf-yvri" class="s05-row"><span data-hf-id="hf-a3de" class="s05-name">Suspension</span><span data-hf-id="hf-2il0" class="s05-n">8</span><span data-hf-id="hf-n7hy" class="s05-bar"><i data-hf-id="hf-a3wd" data-v="8"></i></span></div>
+          <div data-hf-id="hf-yhgh" class="s05-row"><span data-hf-id="hf-k422" class="s05-name">Wheels ×4</span><span data-hf-id="hf-x2ua" class="s05-n">24</span><span data-hf-id="hf-mt6x" class="s05-bar"><i data-hf-id="hf-bcqh" data-v="24"></i></span></div>
+          <div data-hf-id="hf-zodk" class="s05-row"><span data-hf-id="hf-3h34" class="s05-name">Livery</span><span data-hf-id="hf-6hna" class="s05-n">6</span><span data-hf-id="hf-o040" class="s05-bar"><i data-hf-id="hf-o9bn" data-v="6"></i></span></div>
+          <div data-hf-id="hf-lcfb" id="s05-total">合計 <span data-hf-id="hf-498d">84</span> 部品 / <span data-hf-id="hf-24o6">12</span> サブアセンブリ</div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 12;
+          const F = 1 / 60;
+
+          tl.fromTo("#s05-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          tl.fromTo("#s05-h1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.out", immediateRender: true }, 0.27 - F);
+          tl.fromTo("#s05-sub", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.15, ease: "power4.out", immediateRender: true }, 0.48);
+          tl.fromTo("#s05-code", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.55);
+
+          // discrete-text-sequence: the file grows in pasted chunks, as it was written
+          const C1 =
+            "# 主要寸法（三面図・主要諸元より）\n" +
+            "WHEELBASE  = 3600.0\n" +
+            "FRONT_TYRE = dict(D=660.0, W=305.0, track=1620.0)\n" +
+            "REAR_TYRE  = dict(D=670.0, W=405.0, track=1595.0)\n";
+          const C2 =
+            "\n" +
+            "def sec(x, yc, zb, zt, hw, n=2.8):   # スーパー楕円断面\n" +
+            "def airfoil(chord, t=0.12, m=0.06):  # 逆NACA翼型\n" +
+            "def fair_rod(p1, p2, chord, thick):  # 楕円断面アーム\n";
+          const C3 =
+            "\n" +
+            "nose = loft([sec(-1050, 0, 150, 235, 50),\n" +
+            "             sec(-450, 0, 180, 390, 130), ...])\n";
+          const C4 =
+            "\n" +
+            "g = group(doc, root, \"Chassis\")\n" +
+            "for n, (s, c) in build_chassis().items():\n" +
+            "    add(doc, g, n, s, c)";
+          const SEQ = [
+            { t: 0, text: "" },
+            { t: 1.2, text: C1 },
+            { t: 2.6, text: C1 + C2 },
+            { t: 4.0, text: C1 + C2 + C3 },
+            { t: 5.3, text: C1 + C2 + C3 + C4 },
+          ];
+          const body = document.getElementById("s05-body");
+          const drv = { t: 0 };
+          let last = null;
+          tl.to(
+            drv,
+            {
+              t: DUR,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                let txt = "";
+                for (let i = SEQ.length - 1; i >= 0; i--) {
+                  if (drv.t >= SEQ[i].t) {
+                    txt = SEQ[i].text;
+                    break;
+                  }
+                }
+                if (txt !== last) {
+                  body.textContent = txt;
+                  last = txt;
+                }
+              },
+            },
+            0,
+          );
+
+          // spring-pop-entrance: assembly tree rows arrive once the grouping code lands
+          tl.fromTo("#s05-tree-title", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 5.6);
+          gsap.utils.toArray(".s05-row").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0.6, opacity: 0, y: 14 }, { scale: 1, opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 5.8 + i * 0.06);
+          });
+          gsap.utils.toArray(".s05-bar i").forEach((el, i) => {
+            const v = parseFloat(el.dataset.v) / 24;
+            tl.fromTo(el, { scaleX: 0 }, { scaleX: v, duration: 0.9, ease: "power3.out" }, 6.3 + i * 0.06);
+          });
+          tl.fromTo("#s05-total", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 7.4);
+
+          window.__timelines["s05-script"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .s07-head {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1100px;
+        }
+        .s07-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .s07-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .s07-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #s07-loop {
+          position: absolute;
+          right: 110px;
+          top: 150px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 24px;
+          font-weight: 700;
+        }
+        .s07-node {
+          padding: 10px 16px;
+          border: 2px solid #2e2945;
+          color: #a49ebe;
+          background: #16131f;
+        }
+        .s07-node.on {
+          border-color: #a77bff;
+          color: #0c0b14;
+          background: #a77bff;
+        }
+        .s07-arrow {
+          color: #7a7496;
+        }
+        .s07-beat {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+        }
+        .s07-text {
+          position: absolute;
+          left: 110px;
+          top: 420px;
+          width: 650px;
+        }
+        .s07-issue {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 24px;
+          letter-spacing: 0.12em;
+          color: #ff4fa3;
+          border: 2px solid #ff4fa3;
+          padding: 6px 14px;
+          transform-origin: 0% 50%;
+        }
+        .s07-title {
+          font-size: 52px;
+          font-weight: 700;
+          line-height: 1.25;
+          margin-top: 20px;
+        }
+        .s07-line {
+          margin-top: 26px;
+          display: grid;
+          grid-template-columns: 90px 1fr;
+          gap: 14px;
+          font-size: 30px;
+          line-height: 1.45;
+        }
+        .s07-line .k {
+          font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+          font-weight: 700;
+          font-size: 24px;
+          color: #a49ebe;
+          padding-top: 4px;
+        }
+        .s07-line.fix .k {
+          color: #a77bff;
+        }
+        .s07-code {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 28px;
+          color: #a77bff;
+        }
+        .s07-vis {
+          position: absolute;
+          left: 820px;
+          top: 400px;
+          width: 1000px;
+          height: 600px;
+          border: 2px solid #2e2945;
+          background: #0c0b14;
+          overflow: hidden;
+        }
+        .s07-img {
+          position: absolute;
+        }
+        /* side-by-side at the viewport scale where the issue appeared (car bbox centre 677,490 @0.75) */
+        .s07-half {
+          position: absolute;
+          top: 0;
+          width: 498px;
+          height: 596px;
+          overflow: hidden;
+        }
+        #s07-a-left {
+          left: 0;
+        }
+        #s07-a-right {
+          left: 500px;
+        }
+        #s07-a-div {
+          position: absolute;
+          left: 498px;
+          top: 0;
+          width: 2px;
+          height: 596px;
+          background: #2e2945;
+        }
+        #s07-a-before,
+        #s07-a-after {
+          left: -259px;
+          top: -67px;
+          width: 960px;
+          height: 675px;
+        }
+        /* sidepod lettering centre measured at (830,640) in the hero render, shown at 1.5x */
+        #s07-b-img {
+          left: -745px;
+          top: -760px;
+          width: 2880px;
+          height: 1620px;
+        }
+        .s07-badge {
+          position: absolute;
+          left: 20px;
+          top: 20px;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 22px;
+          letter-spacing: 0.12em;
+          padding: 6px 12px;
+          background: #0c0b14;
+          border: 2px solid #2e2945;
+        }
+        #s07-a-badge-before {
+          color: #ff4fa3;
+          border-color: #ff4fa3;
+        }
+        #s07-a-badge-after,
+        #s07-b-badge {
+          color: #a77bff;
+          border-color: #a77bff;
+        }
+        #s07-log {
+          position: absolute;
+          left: 30px;
+          right: 30px;
+          top: 30px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 26px;
+          line-height: 1.6;
+          white-space: pre;
+          z-index: 2;
+        }
+        #s07-log .err {
+          color: #ff4fa3;
+        }
+        #s07-log .ok {
+          color: #a77bff;
+        }
+        #s07-log-bg {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          height: 200px;
+          background: #16131f;
+          border-bottom: 2px solid #2e2945;
+          z-index: 1;
+        }
+        #s07-b-crop {
+          position: absolute;
+          left: 0;
+          top: 200px;
+          width: 1000px;
+          height: 400px;
+          overflow: hidden;
+        }
+        #s07-table {
+          position: absolute;
+          left: 820px;
+          top: 400px;
+          width: 1000px;
+        }
+        .s07-row {
+          display: grid;
+          grid-template-columns: 240px 1fr;
+          gap: 20px;
+          padding: 22px 0;
+          border-bottom: 2px solid #2e2945;
+          transform-origin: 0% 50%;
+        }
+        .s07-part {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 28px;
+        }
+        .s07-meas {
+          font-size: 28px;
+          color: #a49ebe;
+        }
+        .s07-meas b {
+          display: block;
+          color: #edeaf6;
+          font-weight: 700;
+          margin-top: 4px;
+        }
+        .s07-meas .num {
+          font-family: "JetBrains Mono", monospace;
+          color: #ff4fa3;
+          font-variant-numeric: tabular-nums;
+        }
+      </style>
+
+      <div data-hf-id="hf-zw7b" id="root" data-composition-id="s07-fix" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-p4c3" class="s07-head">
+          <span data-hf-id="hf-8pmb" class="s07-tag" id="s07-tag">STEP 06</span>
+          <span data-hf-id="hf-fbt1" class="s07-h1" id="s07-h1">検証ループ</span>
+          <span data-hf-id="hf-g6g1" class="s07-sub" id="s07-sub">レンダーを見て、測って、直す</span>
+        </div>
+        <div data-hf-id="hf-fbz2" id="s07-loop">
+          <span data-hf-id="hf-2sqn" class="s07-node" id="s07-n0">BUILD</span><span data-hf-id="hf-o4tz" class="s07-arrow">→</span>
+          <span data-hf-id="hf-lurd" class="s07-node" id="s07-n1">VIEW</span><span data-hf-id="hf-dp4n" class="s07-arrow">→</span>
+          <span data-hf-id="hf-a2qh" class="s07-node" id="s07-n2">MEASURE</span><span data-hf-id="hf-datm" class="s07-arrow">→</span>
+          <span data-hf-id="hf-6njp" class="s07-node" id="s07-n3">FIX</span>
+        </div>
+
+        <!-- ISSUE 1: wings render black -->
+        <div data-hf-id="hf-rlib" class="s07-beat" id="s07-a">
+          <div data-hf-id="hf-bzf8" class="s07-text">
+            <span data-hf-id="hf-hwfy" class="s07-issue" id="s07-a-tag">ISSUE 1/3</span>
+            <div data-hf-id="hf-cy6s" class="s07-title" id="s07-a-title">ウイングが真っ黒に見える</div>
+            <div data-hf-id="hf-rph3" class="s07-line" id="s07-a-l1"><span data-hf-id="hf-e03n" class="k">原因</span><span data-hf-id="hf-7djw">翼型1枚が約56面。小さく映ると、辺の線が面の色を覆い隠す</span></div>
+            <div data-hf-id="hf-c7al" class="s07-line fix" id="s07-a-l2"><span data-hf-id="hf-5g1k" class="k">対策</span><span data-hf-id="hf-oxp0" class="s07-code">DisplayMode = "Shaded"</span></div>
+          </div>
+          <div data-hf-id="hf-dl1m" class="s07-vis" id="s07-a-vis">
+            <div data-hf-id="hf-k1j0" class="s07-half" id="s07-a-left">
+              <img data-hf-id="hf-yo44" class="s07-img" id="s07-a-before" src="assets/renders/wing_before.png" alt="" data-layout-allow-overflow="">
+              <div data-hf-id="hf-ap1a" class="s07-badge" id="s07-a-badge-before">BEFORE · Flat Lines</div>
+            </div>
+            <div data-hf-id="hf-7xlf" class="s07-half" id="s07-a-right">
+              <img data-hf-id="hf-05v8" class="s07-img" id="s07-a-after" src="assets/renders/wing_after.png" alt="" data-layout-allow-overflow="">
+              <div data-hf-id="hf-9f7f" class="s07-badge" id="s07-a-badge-after">AFTER · Shaded</div>
+            </div>
+            <div data-hf-id="hf-c06z" id="s07-a-div"></div>
+          </div>
+        </div>
+
+        <!-- ISSUE 2: sidepod lettering fails -->
+        <div data-hf-id="hf-ixmg" class="s07-beat" id="s07-b">
+          <div data-hf-id="hf-vsq4" class="s07-text">
+            <span data-hf-id="hf-vlaa" class="s07-issue" id="s07-b-tag">ISSUE 2/3</span>
+            <div data-hf-id="hf-5gus" class="s07-title" id="s07-b-title">デカールが貼れない</div>
+            <div data-hf-id="hf-fr5u" class="s07-line" id="s07-b-l1"><span data-hf-id="hf-m9oj" class="k">原因</span><span data-hf-id="hf-1y99">角ばらせたロフト曲面は、オフセット面を作れない</span></div>
+            <div data-hf-id="hf-ywh4" class="s07-line fix" id="s07-b-l2"><span data-hf-id="hf-jmmo" class="k">対策</span><span data-hf-id="hf-sc3c">6 mm 外へずらした複製と交差させて、文字を曲面に沿わせる</span></div>
+          </div>
+          <div data-hf-id="hf-3ddt" class="s07-vis" id="s07-b-vis">
+            <div data-hf-id="hf-inxa" id="s07-log-bg"></div>
+            <div data-hf-id="hf-algy" id="s07-log"><span data-hf-id="hf-nf8d" id="s07-log-1"></span>
+<span data-hf-id="hf-xhos" class="err" id="s07-log-2"></span>
+<span data-hf-id="hf-8b4q" class="ok" id="s07-log-3"></span></div>
+            <div data-hf-id="hf-gkhp" id="s07-b-crop">
+              <img data-hf-id="hf-9ffv" class="s07-img" id="s07-b-img" src="assets/renders/hero_front34.png" alt="" data-layout-allow-overflow="">
+              <div data-hf-id="hf-ut7o" class="s07-badge" id="s07-b-badge" style="top: 20px">AFTER</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ISSUE 3: parts poking through the bodywork -->
+        <div data-hf-id="hf-jpa9" class="s07-beat" id="s07-c">
+          <div data-hf-id="hf-ult1" class="s07-text">
+            <span data-hf-id="hf-lm72" class="s07-issue" id="s07-c-tag">ISSUE 3/3</span>
+            <div data-hf-id="hf-lp9p" class="s07-title" id="s07-c-title">外装からはみ出す部品</div>
+            <div data-hf-id="hf-t9k5" class="s07-line" id="s07-c-l1"><span data-hf-id="hf-wk6e" class="k">検出</span><span data-hf-id="hf-m1su">部品から外装をブーリアン減算し、残った体積で判定</span></div>
+            <div data-hf-id="hf-1feb" class="s07-line fix" id="s07-c-l2"><span data-hf-id="hf-ifpl" class="k">対策</span><span data-hf-id="hf-0e5i">配置と寸法をパラメータで修正して再ビルド</span></div>
+          </div>
+          <div data-hf-id="hf-nl5c" id="s07-table">
+            <div data-hf-id="hf-spnv" class="s07-row"><span data-hf-id="hf-kzuz" class="s07-part">Exhaust</span><span data-hf-id="hf-0bpk" class="s07-meas">外装の外に <span data-hf-id="hf-914i" class="num">1,702,404 mm³</span><b data-hf-id="hf-9egt">一次管を Y ±230 → ±185 mm へ</b></span></div>
+            <div data-hf-id="hf-5423" class="s07-row"><span data-hf-id="hf-nto6" class="s07-part">MGU-K</span><span data-hf-id="hf-3xlq" class="s07-meas">ボディ下面から突出<b data-hf-id="hf-2yeb">小径化（r75 → 60）して内側へ移設</b></span></div>
+            <div data-hf-id="hf-4pr2" class="s07-row"><span data-hf-id="hf-sj5r" class="s07-part">RW Endplate</span><span data-hf-id="hf-g2oh" class="s07-meas">高さ <span data-hf-id="hf-bxtx" class="num">570 mm</span>（図面は 320）<b data-hf-id="hf-4r1j">350 mm に縮めて図面に寄せる</b></span></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 18;
+          const F = 1 / 60;
+
+          tl.fromTo("#s07-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          tl.fromTo("#s07-h1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.out", immediateRender: true }, 0.27 - F);
+          tl.fromTo("#s07-sub", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.15, ease: "power4.out", immediateRender: true }, 0.48);
+          tl.fromTo("#s07-loop", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.5);
+
+          // loop indicator: the active node walks BUILD -> VIEW -> MEASURE -> FIX per beat
+          const nodes = [0, 1, 2, 3].map((i) => document.getElementById("s07-n" + i));
+          const WALK = [
+            { t: 0, n: 0 },
+            { t: 1.2, n: 1 }, { t: 3.2, n: 3 },
+            { t: 6.3, n: 0 }, { t: 6.9, n: 2 }, { t: 8.6, n: 3 },
+            { t: 12.3, n: 2 }, { t: 14.8, n: 3 }, { t: 16.6, n: 0 },
+          ];
+          const drv = { t: 0 };
+          let lastN = -1;
+          tl.to(
+            drv,
+            {
+              t: DUR,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                let n = 0;
+                for (let i = WALK.length - 1; i >= 0; i--) {
+                  if (drv.t >= WALK[i].t) {
+                    n = WALK[i].n;
+                    break;
+                  }
+                }
+                if (n !== lastN) {
+                  nodes.forEach((el, i) => el.classList.toggle("on", i === n));
+                  lastN = n;
+                }
+              },
+            },
+            0,
+          );
+
+          // beat containers: A 0.9-6, B 6-12, C 12-18
+          tl.fromTo(["#s07-a", "#s07-b", "#s07-c"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+          tl.to("#s07-a", { opacity: 1, duration: 0.3, ease: "power1.out" }, 0.9);
+          tl.to("#s07-a", { opacity: 0, duration: 0.3, ease: "power1.in" }, 5.8);
+          tl.to("#s07-b", { opacity: 1, duration: 0.3, ease: "power1.out" }, 6.1);
+          tl.to("#s07-b", { opacity: 0, duration: 0.3, ease: "power1.in" }, 11.8);
+          tl.to("#s07-c", { opacity: 1, duration: 0.3, ease: "power1.out" }, 12.1);
+
+          function textIn(prefix, at) {
+            tl.fromTo(`#${prefix}-tag`, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" }, at);
+            tl.fromTo(`#${prefix}-title`, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.18, ease: "power4.out", immediateRender: false }, at + 0.12);
+          }
+
+          // ISSUE 1
+          textIn("s07-a", 1.0);
+          tl.fromTo("#s07-a-vis", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 1.2);
+          tl.fromTo("#s07-a-l1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 1.8);
+          // AFTER half wipes in from the divider once the fix is named
+          tl.fromTo("#s07-a-right", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 100% 0 0)", duration: 0.01 }, 0);
+          tl.to("#s07-a-right", { clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "power2.inOut" }, 3.3);
+          tl.fromTo("#s07-a-l2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 3.4);
+          tl.fromTo(["#s07-a-before", "#s07-a-after"], { scale: 1 }, { scale: 1.06, duration: 4.6, ease: "power1.inOut" }, 1.2);
+
+          // ISSUE 2 — discrete log lines
+          textIn("s07-b", 6.3);
+          tl.fromTo("#s07-b-vis", { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 6.5);
+          const LOG = [
+            { el: "s07-log-1", text: "decal failed: AURORA", at: 6.9 },
+            { el: "s07-log-2", text: "Geom_BSplineSurface: Weights values too small", at: 7.2 },
+            { el: "s07-log-3", text: "→ fallback: host.copy().translate(0, ±6, 0)", at: 8.7 },
+          ];
+          const logEls = LOG.map((l) => document.getElementById(l.el));
+          const ldrv = { t: 0 };
+          const logState = [null, null, null];
+          tl.to(
+            ldrv,
+            {
+              t: DUR,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                LOG.forEach((l, i) => {
+                  const txt = ldrv.t >= l.at ? l.text : "";
+                  if (txt !== logState[i]) {
+                    logEls[i].textContent = txt;
+                    logState[i] = txt;
+                  }
+                });
+              },
+            },
+            0,
+          );
+          tl.fromTo("#s07-b-l1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 7.5);
+          tl.fromTo("#s07-b-crop", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+          tl.to("#s07-b-crop", { opacity: 1, duration: 0.45, ease: "power1.out" }, 9.0);
+          tl.fromTo("#s07-b-img", { scale: 1.06 }, { scale: 1, duration: 2.8, ease: "power2.out" }, 9.0);
+          tl.fromTo("#s07-b-l2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 8.9);
+
+          // ISSUE 3 — measured rows
+          textIn("s07-c", 12.3);
+          tl.fromTo("#s07-c-l1", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 12.8);
+          gsap.utils.toArray(".s07-row").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0.7, opacity: 0, y: 16 }, { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 13.2 + i * 0.45);
+          });
+          tl.fromTo("#s07-c-l2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, 15.0);
+
+          window.__timelines["s07-fix"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

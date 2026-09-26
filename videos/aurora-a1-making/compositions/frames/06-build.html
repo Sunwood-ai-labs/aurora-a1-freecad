@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .s06-head {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1700px;
+          z-index: 3;
+        }
+        .s06-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .s06-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .s06-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #s06-cam {
+          position: absolute;
+          left: 600px;
+          top: 250px;
+          width: 1300px;
+          height: 731px;
+          transform-origin: 50% 50%;
+          will-change: transform;
+        }
+        #s06-glow {
+          position: absolute;
+          left: 150px;
+          top: 90px;
+          width: 1000px;
+          height: 560px;
+          border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(167, 123, 255, 0.3), rgba(167, 123, 255, 0));
+        }
+        .s06-stage {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+        }
+        #s06-list {
+          position: absolute;
+          left: 110px;
+          top: 420px;
+          width: 470px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          z-index: 2;
+        }
+        .s06-item {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 10px 0;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 26px;
+          color: #a49ebe;
+        }
+        .s06-box {
+          width: 20px;
+          height: 20px;
+          border: 2px solid #2e2945;
+          position: relative;
+          flex: none;
+        }
+        .s06-box i {
+          position: absolute;
+          inset: 2px;
+          background: #a77bff;
+          transform-origin: 50% 50%;
+        }
+        .s06-item .s06-lbl {
+          flex: 1;
+        }
+        .s06-item .s06-c {
+          font-weight: 700;
+          font-variant-numeric: tabular-nums;
+        }
+        .s06-hi {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          color: #edeaf6;
+        }
+        #s06-count-wrap {
+          position: absolute;
+          left: 110px;
+          top: 800px;
+          width: 460px;
+          display: flex;
+          align-items: baseline;
+          gap: 14px;
+          z-index: 2;
+        }
+        #s06-count {
+          display: inline-block;
+          width: 190px;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 128px;
+          line-height: 1;
+          color: #a77bff;
+          font-variant-numeric: tabular-nums;
+          transform-origin: 0% 100%;
+        }
+        #s06-count-lab {
+          font-size: 34px;
+          font-weight: 700;
+        }
+        #s06-facts {
+          position: absolute;
+          right: 90px;
+          bottom: 92px;
+          display: flex;
+          gap: 16px;
+          z-index: 2;
+        }
+        .s06-fact {
+          border: 2px solid #2e2945;
+          background: #16131f;
+          padding: 14px 22px;
+          transform-origin: 50% 100%;
+        }
+        .s06-fact b {
+          display: block;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 32px;
+          font-variant-numeric: tabular-nums;
+        }
+        .s06-fact span {
+          font-size: 22px;
+          color: #a49ebe;
+        }
+      </style>
+
+      <div data-hf-id="hf-jxyv" id="root" data-composition-id="s06-build" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-xhvs" id="s06-cam">
+          <div data-hf-id="hf-9714" id="s06-glow"></div>
+          <img data-hf-id="hf-9f3s" class="s06-stage" id="s06-st1" src="assets/renders/stage_1.png" alt="">
+          <img data-hf-id="hf-mn1u" class="s06-stage" id="s06-st2" src="assets/renders/stage_2.png" alt="">
+          <img data-hf-id="hf-c3sg" class="s06-stage" id="s06-st3" src="assets/renders/stage_3.png" alt="">
+          <img data-hf-id="hf-6jem" class="s06-stage" id="s06-st4" src="assets/renders/stage_4.png" alt="">
+          <img data-hf-id="hf-l7ns" class="s06-stage" id="s06-st5" src="assets/renders/stage_5.png" alt="">
+          <img data-hf-id="hf-78rm" class="s06-stage" id="s06-st6" src="assets/renders/stage_6.png" alt="">
+        </div>
+
+        <div data-hf-id="hf-47oo" class="s06-head">
+          <span data-hf-id="hf-ngl4" class="s06-tag" id="s06-tag">STEP 05</span>
+          <span data-hf-id="hf-qbrc" class="s06-h1" id="s06-h1">ビルド</span>
+          <span data-hf-id="hf-vqh7" class="s06-sub" id="s06-sub">execute_code 1 回で、全サブアセンブリを生成</span>
+        </div>
+
+        <div data-hf-id="hf-cnvj" id="s06-list">
+          <div data-hf-id="hf-iqj9" class="s06-item" id="s06-i1"><span data-hf-id="hf-x2gq" class="s06-box"><i data-hf-id="hf-wt6k"></i></span><span data-hf-id="hf-q4m1" class="s06-lbl">Chassis</span><span data-hf-id="hf-wg79" class="s06-c">+11</span></div>
+          <div data-hf-id="hf-mona" class="s06-item" id="s06-i2"><span data-hf-id="hf-0mla" class="s06-box"><i data-hf-id="hf-zeb8"></i></span><span data-hf-id="hf-n56r" class="s06-lbl">PowerUnit / Drivetrain</span><span data-hf-id="hf-z8cg" class="s06-c">+16</span></div>
+          <div data-hf-id="hf-qmrb" class="s06-item" id="s06-i3"><span data-hf-id="hf-10wb" class="s06-box"><i data-hf-id="hf-y7e5"></i></span><span data-hf-id="hf-talm" class="s06-lbl">Suspension</span><span data-hf-id="hf-cm75" class="s06-c">+8</span></div>
+          <div data-hf-id="hf-ukvc" class="s06-item" id="s06-i4"><span data-hf-id="hf-1f7c" class="s06-box"><i data-hf-id="hf-ylp6"></i></span><span data-hf-id="hf-mgtu" class="s06-lbl">Wheels ×4</span><span data-hf-id="hf-uhmd" class="s06-c">+24</span></div>
+          <div data-hf-id="hf-vcj5" class="s06-item" id="s06-i5"><span data-hf-id="hf-yn25" class="s06-box"><i data-hf-id="hf-0l8b"></i></span><span data-hf-id="hf-2nx0" class="s06-lbl">Aerodynamics</span><span data-hf-id="hf-t9r1" class="s06-c">+19</span></div>
+          <div data-hf-id="hf-zan6" class="s06-item" id="s06-i6"><span data-hf-id="hf-z1d6" class="s06-box"><i data-hf-id="hf-0zjc"></i></span><span data-hf-id="hf-n0co" class="s06-lbl">Livery</span><span data-hf-id="hf-f01b" class="s06-c">+6</span></div>
+        </div>
+
+        <div data-hf-id="hf-eayl" id="s06-count-wrap">
+          <span data-hf-id="hf-sk6v" id="s06-count">0</span><span data-hf-id="hf-ap97" id="s06-count-lab">部品ソリッド</span>
+        </div>
+
+        <div data-hf-id="hf-th2o" id="s06-facts">
+          <div data-hf-id="hf-d9is" class="s06-fact"><b data-hf-id="hf-m8xe">53.8 s</b><span data-hf-id="hf-3x9j">初回ビルド</span></div>
+          <div data-hf-id="hf-jb7w" class="s06-fact"><b data-hf-id="hf-7lpc">invalid 0</b><span data-hf-id="hf-r5am">全ソリッド有効</span></div>
+          <div data-hf-id="hf-i4at" class="s06-fact"><b data-hf-id="hf-ih3m">5640×2002×965</b><span data-hf-id="hf-exjl">外形 mm</span></div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 14;
+          const F = 1 / 60;
+
+          tl.fromTo("#s06-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          tl.fromTo("#s06-h1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.out", immediateRender: true }, 0.27 - F);
+          tl.fromTo("#s06-sub", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.15, ease: "power4.out", immediateRender: true }, 0.48);
+          tl.fromTo("#s06-list", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 0.6);
+          tl.fromTo("#s06-count-wrap", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 0.6);
+          tl.fromTo("#s06-glow", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "power1.out" }, 0.6);
+
+          // stage stack: each sub-assembly group lands on its own beat (1 bar = 2 s)
+          const CUM = [11, 27, 35, 59, 78, 84];
+          const STAGE_AT = [1.0, 2.5, 4.0, 5.5, 7.0, 8.5];
+          const stages = gsap.utils.toArray(".s06-stage");
+          stages.forEach((el, i) => {
+            tl.fromTo(el, { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+            tl.to(el, { opacity: 1, duration: 0.35, ease: "power1.out" }, STAGE_AT[i]);
+            if (i > 0) tl.to(stages[i - 1], { opacity: 0, duration: 0.35, ease: "power1.in" }, STAGE_AT[i] + 0.05);
+          });
+
+          // checklist: box fills and label brightens on its stage
+          gsap.utils.toArray(".s06-item").forEach((el, i) => {
+            tl.fromTo(el.querySelector(".s06-box i"), { scale: 0 }, { scale: 1, duration: 0.35, ease: "power3.out" }, STAGE_AT[i]);
+            tl.fromTo(el, { color: "#a49ebe" }, { color: "#edeaf6", duration: 0.25, ease: "power1.out" }, STAGE_AT[i]);
+          });
+
+          // counting-dynamic-scale: 0 -> 84, stepping to each cumulative total
+          const counter = document.getElementById("s06-count");
+          const state = { v: 0 };
+          const START_SCALE = 0.6;
+          tl.fromTo(counter, { scale: START_SCALE }, { scale: 1, duration: STAGE_AT[5] + 1.0 - STAGE_AT[0], ease: "power2.out" }, STAGE_AT[0]);
+          CUM.forEach((c, i) => {
+            tl.to(
+              state,
+              {
+                v: c,
+                duration: 1.0,
+                ease: "power3.out",
+                onUpdate: () => {
+                  counter.textContent = Math.round(state.v);
+                },
+              },
+              STAGE_AT[i],
+            );
+          });
+
+          // measured facts arrive after the last group lands
+          gsap.utils.toArray(".s06-fact").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0, opacity: 0, y: 16 }, { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 10.0 + i * 0.08);
+          });
+
+          // multi-phase-camera: the model grows toward the viewer as it completes
+          const cam = document.getElementById("s06-cam");
+          const phase = { scale: 0.92 };
+          tl.to(phase, { scale: 1.0, duration: 8.0, ease: "power1.inOut" }, 1.0);
+          tl.to(phase, { scale: 1.05, duration: 4.0, ease: "power2.inOut" }, 9.6);
+          const drift = { p: 0 };
+          tl.to(
+            drift,
+            {
+              p: Math.PI * 2 * 1.5,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                const dx = Math.sin(drift.p) * 6;
+                const dy = Math.sin(drift.p * 1.3) * 3;
+                cam.style.transform = `scale(${phase.scale}) translate(${dx}px, ${dy}px)`;
+              },
+            },
+            0,
+          );
+
+          window.__timelines["s06-build"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

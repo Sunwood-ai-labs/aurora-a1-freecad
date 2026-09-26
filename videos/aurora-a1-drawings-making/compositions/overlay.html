@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        #ov-hud {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 84px;
+        }
+        #ov-hud-inner {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 72px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 22px;
+          letter-spacing: 0.08em;
+        }
+        #ov-brand {
+          color: #edeaf6;
+          font-weight: 700;
+        }
+        #ov-brand span {
+          color: #a49ebe;
+          font-weight: 400;
+        }
+        #ov-step {
+          color: #a77bff;
+          font-weight: 700;
+          min-width: 520px;
+          text-align: right;
+          white-space: nowrap;
+        }
+        #ov-rule {
+          position: absolute;
+          left: 72px;
+          right: 72px;
+          bottom: 0;
+          height: 2px;
+          background: #2e2945;
+          transform-origin: 0 50%;
+        }
+        #ov-progress {
+          position: absolute;
+          left: 72px;
+          right: 72px;
+          bottom: 36px;
+          height: 6px;
+          display: flex;
+          gap: 10px;
+        }
+        .ov-seg {
+          position: relative;
+          flex: 1;
+          height: 6px;
+          background: #2e2945;
+          overflow: hidden;
+        }
+        .ov-fill {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          background: #a77bff;
+          transform-origin: 0 50%;
+        }
+        #ov-flash {
+          position: absolute;
+          inset: 0;
+          background: #f4efff;
+          opacity: 0;
+        }
+        #ov-bands {
+          position: absolute;
+          inset: 0;
+          mix-blend-mode: screen;
+        }
+        .ov-band {
+          position: absolute;
+          left: -80px;
+          width: 2080px;
+          opacity: 0;
+          will-change: transform;
+        }
+        #ov-leak {
+          position: absolute;
+          left: -1300px;
+          top: -700px;
+          width: 2600px;
+          height: 2480px;
+          border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(255, 214, 246, 0.95), rgba(255, 79, 163, 0.55) 35%, rgba(167, 123, 255, 0.35) 60%, rgba(167, 123, 255, 0));
+          mix-blend-mode: screen;
+          opacity: 0;
+        }
+      </style>
+
+      <div data-hf-id="hf-kukl" id="root" data-composition-id="overlay" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-izki" id="ov-hud">
+          <div data-hf-id="hf-r3wx" id="ov-hud-inner">
+            <div data-hf-id="hf-n2pg" id="ov-brand">AURORA A1 <span data-hf-id="hf-eid6">— DRAWINGS</span></div>
+            <div data-hf-id="hf-qfw5" id="ov-step">STEP 01 / 08 · 依頼</div>
+          </div>
+          <div data-hf-id="hf-gbld" id="ov-rule"></div>
+        </div>
+        <div data-hf-id="hf-m8f6" id="ov-progress">
+          <div data-hf-id="hf-1uzz" class="ov-seg"><div data-hf-id="hf-hshj" class="ov-fill"></div></div>
+          <div data-hf-id="hf-p5cf" class="ov-seg"><div data-hf-id="hf-at13" class="ov-fill"></div></div>
+          <div data-hf-id="hf-or1e" class="ov-seg"><div data-hf-id="hf-aeq2" class="ov-fill"></div></div>
+          <div data-hf-id="hf-ocqd" class="ov-seg"><div data-hf-id="hf-a0f1" class="ov-fill"></div></div>
+          <div data-hf-id="hf-r4vk" class="ov-seg"><div data-hf-id="hf-csk8" class="ov-fill"></div></div>
+          <div data-hf-id="hf-qqkj" class="ov-seg"><div data-hf-id="hf-ce97" class="ov-fill"></div></div>
+          <div data-hf-id="hf-qc9i" class="ov-seg"><div data-hf-id="hf-bzy6" class="ov-fill"></div></div>
+          <div data-hf-id="hf-pxyh" class="ov-seg"><div data-hf-id="hf-bln5" class="ov-fill"></div></div>
+        </div>
+        <div data-hf-id="hf-ti0d" id="ov-bands"></div>
+        <div data-hf-id="hf-rg1d" id="ov-leak" data-layout-allow-overflow=""></div>
+        <div data-hf-id="hf-4b6r" id="ov-flash"></div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 106;
+          const STEPS = [
+            { a: 8, b: 16, label: "STEP 01 / 08 · 依頼" },
+            { a: 16, b: 26, label: "STEP 02 / 08 · 構成" },
+            { a: 26, b: 36, label: "STEP 03 / 08 · 試作" },
+            { a: 36, b: 48, label: "STEP 04 / 08 · モデル修正" },
+            { a: 48, b: 62, label: "STEP 05 / 08 · 自動化" },
+            { a: 62, b: 80, label: "STEP 06 / 08 · 断面図" },
+            { a: 80, b: 90, label: "STEP 07 / 08 · 部品表" },
+            { a: 90, b: 96, label: "STEP 08 / 08 · 出力" },
+          ];
+
+          // HUD + progress exist only between the intro and the outro
+          tl.fromTo(["#ov-hud", "#ov-progress"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+          tl.fromTo("#ov-hud-inner", { y: -16 }, { y: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, 8);
+          tl.to(["#ov-hud", "#ov-progress"], { opacity: 1, duration: 0.3, ease: "power1.out" }, 8);
+          tl.fromTo("#ov-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, 8.1);
+          tl.to(["#ov-hud", "#ov-progress"], { opacity: 0, duration: 0.4, ease: "power1.in" }, 95.6);
+
+          // step label: discrete swap at each step boundary
+          const stepEl = document.getElementById("ov-step");
+          const drv = { t: 0 };
+          let last = "";
+          tl.to(
+            drv,
+            {
+              t: DUR,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                let label = STEPS[0].label;
+                for (let i = STEPS.length - 1; i >= 0; i--) {
+                  if (drv.t >= STEPS[i].a) {
+                    label = STEPS[i].label;
+                    break;
+                  }
+                }
+                if (label !== last) {
+                  stepEl.textContent = label;
+                  last = label;
+                }
+              },
+            },
+            0,
+          );
+
+          // progress segments fill across their step window
+          document.querySelectorAll(".ov-fill").forEach((el, i) => {
+            const s = STEPS[i];
+            tl.fromTo(el, { scaleX: 0 }, { scaleX: 1, duration: s.b - s.a, ease: "none" }, s.a);
+          });
+
+          // glitch cut at 48 s: RGB noise bands jitter on quantized time, then a hard white flash
+          const glitchHash = (n) => {
+            const x = Math.sin(n * 127.1 + 311.7) * 43758.5453;
+            return x - Math.floor(x);
+          };
+          const bandsEl = document.getElementById("ov-bands");
+          const BANDS = 14;
+          for (let i = 0; i < BANDS; i++) {
+            const b = document.createElement("div");
+            b.className = "ov-band";
+            b.style.top = Math.round(glitchHash(i * 3 + 1) * 1040) + "px";
+            b.style.height = Math.round(6 + glitchHash(i * 5 + 2) * 46) + "px";
+            b.style.background = i % 3 === 0 ? "#ff3b6b" : i % 3 === 1 ? "#3be8ff" : "#a77bff";
+            bandsEl.appendChild(b);
+          }
+          const bands = gsap.utils.toArray(".ov-band");
+          const G_AT = 47.82, G_DUR = 0.5, STEP = 1 / 24;
+          // one full-length driver: band state is a pure function of time, so any seek (incl. backwards) is exact
+          const gdrv = { t: 0 };
+          let lastOn = true;
+          tl.to(gdrv, {
+            t: 106, duration: 106, ease: "none",
+            onUpdate: () => {
+              const t = gdrv.t;
+              const inWin = t >= G_AT && t < G_AT + G_DUR;
+              if (!inWin) {
+                if (lastOn) { bands.forEach((el) => gsap.set(el, { x: 0, opacity: 0 })); lastOn = false; }
+                return;
+              }
+              lastOn = true;
+              const a = Math.pow(1 - (t - G_AT) / G_DUR, 2);
+              const step = Math.floor(t / STEP);
+              bands.forEach((el, i) => {
+                const on = glitchHash(step * 7 + i * 13) < 0.55 * a + 0.1;
+                gsap.set(el, { x: (glitchHash(step * 13 + i * 7) * 2 - 1) * 220 * a, opacity: on ? 0.75 * a : 0 });
+              });
+            },
+          }, 0);
+          tl.fromTo("#ov-flash", { opacity: 0 }, { opacity: 0.85, duration: 0.06, ease: "none", immediateRender: false }, 47.98);
+          tl.to("#ov-flash", { opacity: 0, duration: 0.3, ease: "power2.out" }, 48.04);
+
+          // light-leak cut at 62 s: a warm bloom sweeps across while the frame overexposes
+          tl.fromTo("#ov-leak", { x: -900, opacity: 0, scale: 0.8 }, { x: 600, opacity: 1, scale: 1.1, duration: 0.8, ease: "power2.in", immediateRender: false }, 61.3);
+          tl.to("#ov-leak", { x: 2200, opacity: 0, scale: 1.3, duration: 1.1, ease: "power2.out" }, 62.1);
+          tl.fromTo("#ov-flash", { opacity: 0 }, { opacity: 0.55, duration: 0.25, ease: "power1.in", immediateRender: false }, 61.75);
+          tl.to("#ov-flash", { opacity: 0, duration: 0.7, ease: "power2.out" }, 62.0);
+
+          // soft flash accents on the zoom-through cuts
+          [8, 16, 26, 36, 80, 90].forEach((c) => {
+            tl.fromTo("#ov-flash", { opacity: 0 }, { opacity: 0.18, duration: 0.08, ease: "none", immediateRender: false }, c - 0.04);
+            tl.to("#ov-flash", { opacity: 0, duration: 0.35, ease: "power2.out" }, c + 0.04);
+          });
+
+          window.__timelines["overlay"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

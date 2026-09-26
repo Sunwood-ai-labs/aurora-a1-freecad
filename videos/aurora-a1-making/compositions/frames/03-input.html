@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .s03-head {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1500px;
+          z-index: 2;
+        }
+        .s03-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .s03-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .s03-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #s03-cam {
+          position: absolute;
+          inset: 0;
+          transform-origin: 940px 640px;
+          will-change: transform;
+        }
+        .s03-card {
+          position: absolute;
+          top: 440px;
+          transform-origin: 50% 50%;
+        }
+        .s03-frame {
+          border: 2px solid #2e2945;
+          background: #16131f;
+          padding: 10px;
+        }
+        .s03-frame img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .s03-cap {
+          margin-top: 18px;
+          display: flex;
+          align-items: baseline;
+          gap: 14px;
+        }
+        .s03-num {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          color: #a77bff;
+        }
+        .s03-lab {
+          font-size: 30px;
+          font-weight: 700;
+        }
+        #s03-c1 {
+          left: 120px;
+          width: 560px;
+        }
+        #s03-c1 .s03-frame {
+          height: 335px;
+        }
+        #s03-c2 {
+          left: 730px;
+          width: 420px;
+          top: 410px;
+        }
+        #s03-c2 .s03-frame {
+          height: 395px;
+          border-color: #a77bff;
+        }
+        #s03-c3 {
+          left: 1200px;
+          width: 600px;
+        }
+        #s03-c3 .s03-frame {
+          height: 355px;
+        }
+        #s03-callout {
+          position: absolute;
+          left: 730px;
+          top: 360px;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 24px;
+          letter-spacing: 0.1em;
+          color: #0c0b14;
+          background: #a77bff;
+          padding: 8px 16px;
+          transform-origin: 0% 100%;
+        }
+      </style>
+
+      <div data-hf-id="hf-cv1w" id="root" data-composition-id="s03-input" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-mz3m" id="s03-cam" data-layout-allow-overflow="">
+          <div data-hf-id="hf-7ryg" class="s03-card" id="s03-c1">
+            <div data-hf-id="hf-hlmk" class="s03-frame"><img data-hf-id="hf-axu0" src="assets/concept/1.webp" alt=""></div>
+            <div data-hf-id="hf-3b7j" class="s03-cap"><span data-hf-id="hf-srwr" class="s03-num">01</span><span data-hf-id="hf-mkte" class="s03-lab">走行イメージ・カラーリング</span></div>
+          </div>
+          <div data-hf-id="hf-ing3" class="s03-card" id="s03-c2">
+            <div data-hf-id="hf-0z04" class="s03-frame"><img data-hf-id="hf-0vny" src="assets/concept/2.webp" alt="" style="object-fit: contain"></div>
+            <div data-hf-id="hf-2zjz" class="s03-cap"><span data-hf-id="hf-sdlq" class="s03-num">02</span><span data-hf-id="hf-cpq6" class="s03-lab">三面図・諸元・分解図</span></div>
+          </div>
+          <div data-hf-id="hf-epc2" class="s03-card" id="s03-c3">
+            <div data-hf-id="hf-zs31" class="s03-frame"><img data-hf-id="hf-7daq" src="assets/concept/3.webp" alt=""></div>
+            <div data-hf-id="hf-2l8y" class="s03-cap"><span data-hf-id="hf-rzap" class="s03-num">03</span><span data-hf-id="hf-wnth" class="s03-lab">コンポーネント構成</span></div>
+          </div>
+          <div data-hf-id="hf-hon7" id="s03-callout">寸法はここから読む</div>
+        </div>
+
+        <div data-hf-id="hf-40rj" class="s03-head">
+          <span data-hf-id="hf-nuwf" class="s03-tag" id="s03-tag">STEP 02</span>
+          <span data-hf-id="hf-u4gw" class="s03-h1" id="s03-h1">インプット</span>
+          <span data-hf-id="hf-wa55" class="s03-sub" id="s03-sub">渡されたのはコンセプト画像 3 枚だけ</span>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 10;
+          const F = 1 / 60;
+
+          tl.fromTo("#s03-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          tl.fromTo("#s03-h1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.out", immediateRender: true }, 0.27 - F);
+          tl.fromTo("#s03-sub", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.15, ease: "power4.out", immediateRender: true }, 0.48);
+
+          // spring-pop-entrance: three cards land as one beat
+          ["#s03-c1", "#s03-c2", "#s03-c3"].forEach((sel, i) => {
+            tl.fromTo(sel, { scale: 0, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.9 + i * 0.08);
+          });
+
+          // multi-phase-camera: hold wide, then push into the drawing sheet (card 02)
+          const cam = document.getElementById("s03-cam");
+          const phase = { scale: 1.0, x: 0, y: 0 };
+          tl.to(phase, { scale: 1.42, x: 20, y: -90, duration: 1.8, ease: "power2.inOut" }, 4.6);
+          const drift = { p: 0 };
+          tl.to(
+            drift,
+            {
+              p: Math.PI * 2 * 1.2,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                const dx = Math.sin(drift.p) * 5;
+                const dy = Math.sin(drift.p * 1.3) * 3;
+                cam.style.transform = `translate(${phase.x + dx}px, ${phase.y + dy}px) scale(${phase.scale})`;
+              },
+            },
+            0,
+          );
+          // side cards recede while the drawing sheet takes focus
+          tl.to(["#s03-c1", "#s03-c3"], { opacity: 0.25, duration: 1.2, ease: "power2.out" }, 4.8);
+          tl.to(".s03-head", { opacity: 0, duration: 0.6, ease: "power1.in" }, 4.6);
+          tl.fromTo("#s03-callout", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 6.5);
+
+          window.__timelines["s03-input"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .hd {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1700px;
+        }
+        .hd-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .hd-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .hd-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #d07-list {
+          position: absolute;
+          left: 110px;
+          top: 410px;
+          width: 580px;
+        }
+        .it {
+          display: grid;
+          grid-template-columns: 170px 1fr;
+          gap: 14px;
+          align-items: baseline;
+          padding: 14px 0;
+          border-bottom: 2px solid #2e2945;
+          color: #7a7496;
+        }
+        .it .s {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+        }
+        .it .d {
+          font-size: 24px;
+        }
+        .it.on {
+          color: #edeaf6;
+        }
+        .it.on .s {
+          color: #a77bff;
+        }
+        #d07-box {
+          position: absolute;
+          left: 750px;
+          top: 400px;
+          width: 1070px;
+          height: 600px;
+          overflow: hidden;
+          border: 2px solid #a77bff;
+          background: #f3f3f3;
+        }
+        .shot {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+        .shot img {
+          position: absolute;
+        }
+        .shot .tag {
+          position: absolute;
+          left: 16px;
+          top: 14px;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 22px;
+          color: #edeaf6;
+          background: #0c0b14;
+          padding: 6px 12px;
+        }
+        .sheen {
+          position: absolute;
+          top: -10%;
+          left: 0;
+          width: 38%;
+          height: 120%;
+          background: linear-gradient(100deg, rgba(167, 123, 255, 0) 0%, rgba(167, 123, 255, 0.32) 50%, rgba(167, 123, 255, 0) 100%);
+          pointer-events: none;
+          z-index: 3;
+        }
+      </style>
+      <div data-hf-id="hf-9cb0" id="root" data-composition-id="s07-sections" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-0hws" class="hd">
+          <span data-hf-id="hf-4b24" class="hd-tag" id="d07-tag">STEP 06</span>
+          <span data-hf-id="hf-11i0" class="hd-h1" id="d07-h1">断面図</span>
+          <span data-hf-id="hf-p4qw" class="hd-sub" id="d07-sub">切断面を指定するだけで、9 箇所の断面をハッチング付きで生成</span>
+        </div>
+        <div data-hf-id="hf-tqkh" id="d07-list">
+          <div data-hf-id="hf-9frr" class="it"><span data-hf-id="hf-8d7x" class="s">A-A</span><span data-hf-id="hf-ts69" class="d">車体中心線の縦断面</span></div>
+          <div data-hf-id="hf-zhnb" class="it"><span data-hf-id="hf-mlhx" class="s">B-B</span><span data-hf-id="hf-onwj" class="d">フロントウイング翼素</span></div>
+          <div data-hf-id="hf-z3ca" class="it"><span data-hf-id="hf-dvw1" class="s">D · E · F</span><span data-hf-id="hf-jty8" class="d">ノーズ / コックピット / 燃料タンク部</span></div>
+          <div data-hf-id="hf-yp19" class="it"><span data-hf-id="hf-flno" class="s">G · H</span><span data-hf-id="hf-lfnp" class="d">サイドポッド前後</span></div>
+          <div data-hf-id="hf-1h6g" class="it"><span data-hf-id="hf-fe52" class="s">J · K</span><span data-hf-id="hf-n61n" class="d">車軸を通るホイール断面</span></div>
+          <div data-hf-id="hf-12vf" class="it"><span data-hf-id="hf-6bxt" class="s">L-L</span><span data-hf-id="hf-j7g9" class="d">V6 シリンダーバンク</span></div>
+        </div>
+        <div data-hf-id="hf-4r90" id="d07-box">
+          <div data-hf-id="hf-0rvf" class="shot" id="d07-s0"><img data-hf-id="hf-goja" src="assets/sheets/S02_CL_Section.png" alt="" data-layout-allow-overflow=""><div data-hf-id="hf-z0t5" class="tag" data-layout-allow-overlap="">02 · 縦断面図</div></div>
+          <div data-hf-id="hf-wtre" class="shot" id="d07-s1"><img data-hf-id="hf-02eu" src="assets/sheets/S03_FrontWing.png" alt="" data-layout-allow-overflow=""><div data-hf-id="hf-tk7a" class="tag" data-layout-allow-overlap="">03 · フロントウイング</div></div>
+          <div data-hf-id="hf-qo1l" class="shot" id="d07-s2"><img data-hf-id="hf-1i5c" src="assets/sheets/S05_Chassis.png" alt="" data-layout-allow-overflow=""><div data-hf-id="hf-qj3o" class="tag" data-layout-allow-overlap="">05 · ノーズ・モノコック</div></div>
+          <div data-hf-id="hf-pwds" class="shot" id="d07-s3"><img data-hf-id="hf-8se4" src="assets/sheets/S06_Bodywork.png" alt="" data-layout-allow-overflow=""><div data-hf-id="hf-t24s" class="tag" data-layout-allow-overlap="">06 · サイドポッド</div></div>
+          <div data-hf-id="hf-ly9r" class="shot" id="d07-s4"><img data-hf-id="hf-xlro" src="assets/sheets/S07_Wheels.png" alt="" data-layout-allow-overflow=""><div data-hf-id="hf-yt00" class="tag" data-layout-allow-overlap="">07 · ホイール</div></div>
+          <div data-hf-id="hf-i05q" class="shot" id="d07-s5"><img data-hf-id="hf-paap" src="assets/sheets/S09_PowerUnit.png" alt="" data-layout-allow-overflow=""><div data-hf-id="hf-skxo" class="tag" data-layout-allow-overlap="">09 · パワーユニット</div></div>
+          <div data-hf-id="hf-icwk" class="sheen" id="d07-sheen" data-layout-allow-overlap=""></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 18;
+          const F = 1 / 60;
+          const PX = 3176 / 420;
+          const BW = 1070, BH = 600;
+          // section view centres on each sheet (page mm, TechDraw Y-up) and zoom that fits the box
+          const SHOTS = [
+            { x: 190, y: 122, k: 0.47 },
+            { x: 330, y: 135, k: 0.88 },
+            { x: 330, y: 188, k: 0.53 },
+            { x: 300, y: 170, k: 0.5 },
+            { x: 150, y: 120, k: 0.6 },
+            { x: 340, y: 112, k: 1.2 },
+          ];
+          const shots = SHOTS.map((s, i) => {
+            const el = document.getElementById("d07-s" + i);
+            const img = el.querySelector("img");
+            img.style.width = 3176 * s.k + "px";
+            img.style.height = 2246 * s.k + "px";
+            const left = BW / 2 - s.x * PX * s.k;
+            const top = BH / 2 - (297 - s.y) * PX * s.k;
+            img.style.left = left + "px";
+            img.style.top = top + "px";
+            img.style.transformOrigin = `${s.x * PX * s.k}px ${(297 - s.y) * PX * s.k}px`;
+            return { el, img };
+          });
+
+          tl.fromTo("#d07-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          // tracking-in done with per-glyph x (transform), not letterSpacing (which snaps to pixels)
+          (function () {
+            const h = document.getElementById("d07-h1");
+            const chars = Array.from(h.textContent);
+            h.textContent = "";
+            chars.forEach((c) => { const g = document.createElement("span"); g.textContent = c; g.style.display = "inline-block"; h.appendChild(g); });
+            const gs = Array.from(h.children), mid = (gs.length - 1) / 2;
+            gs.forEach((g, i) => tl.fromTo(g, { x: (i - mid) * 30 }, { x: 0, duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18));
+          })();
+          tl.fromTo("#d07-h1", { opacity: 0, y: 26, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18);
+          tl.fromTo("#d07-sub", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", immediateRender: true }, 0.5);
+          tl.fromTo("#d07-box", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.6);
+          tl.fromTo("#d07-list", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.7);
+
+          // one section group per beat: crossfade + slow push on the cut (multi-phase-camera, per shot)
+          const BEAT = 2.8, T0 = 0.8;
+          shots.forEach((s, i) => {
+            const at = T0 + i * BEAT;
+            tl.fromTo(s.el, { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+            tl.to(s.el, { opacity: 1, duration: 0.3, ease: "power1.out" }, at);
+            if (i < shots.length - 1) tl.to(s.el, { opacity: 0, duration: 0.3, ease: "power1.in" }, at + BEAT);
+            tl.fromTo(s.img, { scale: 1.1 }, { scale: 1.0, duration: BEAT + 0.3, ease: "power2.out" }, at);
+          });
+          shots.forEach((_, i) => {
+            tl.fromTo("#d07-sheen", { x: -520 }, { x: 1300, duration: 0.8, ease: "power2.inOut", immediateRender: i === 0 }, T0 + i * BEAT + 0.15);
+          });
+          // list highlight follows the active shot
+          const items = gsap.utils.toArray(".it");
+          const drv = { t: 0 };
+          let last = -2;
+          tl.to(drv, {
+            t: DUR, duration: DUR, ease: "none",
+            onUpdate: () => {
+              const n = drv.t < T0 ? -1 : Math.min(shots.length - 1, Math.floor((drv.t - T0) / BEAT));
+              if (n !== last) { items.forEach((el, i) => el.classList.toggle("on", i === n)); last = n; }
+            },
+          }, 0);
+          window.__timelines["s07-sections"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

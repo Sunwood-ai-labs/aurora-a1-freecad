@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+          background: #0c0b14;
+        }
+        #s10-video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        #s10-scrim {
+          position: absolute;
+          left: -300px;
+          bottom: -420px;
+          width: 1500px;
+          height: 900px;
+          border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(12, 11, 20, 0.92), rgba(12, 11, 20, 0));
+        }
+        #s10-text {
+          position: absolute;
+          left: 110px;
+          bottom: 110px;
+          width: 1300px;
+        }
+        #s10-flow {
+          display: flex;
+          align-items: baseline;
+          gap: 18px;
+          font-size: 36px;
+          font-weight: 700;
+        }
+        .s10-w {
+          display: inline-block;
+          opacity: 0;
+        }
+        .s10-w b {
+          font-family: "JetBrains Mono", monospace;
+          color: #a77bff;
+          font-size: 44px;
+        }
+        .s10-arrow {
+          color: #a49ebe;
+        }
+        #s10-name {
+          display: block;
+          font-size: 150px;
+          font-weight: 700;
+          letter-spacing: -0.03em;
+          line-height: 1;
+          margin-top: 24px;
+        }
+        #s10-name span {
+          color: #a77bff;
+        }
+        #s10-by {
+          display: block;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 30px;
+          color: #a49ebe;
+          margin-top: 44px;
+          letter-spacing: 0.06em;
+        }
+        #s10-by b {
+          color: #edeaf6;
+        }
+        #s10-black {
+          position: absolute;
+          inset: 0;
+          background: #0c0b14;
+        }
+      </style>
+
+      <div data-hf-id="hf-c8nv" id="root" data-composition-id="s10-outro" data-width="1920" data-height="1080">
+        <video data-hf-id="hf-3as5" id="s10-video" class="clip" src="assets/renders/turntable.mp4" data-start="0" data-duration="10" data-playback-rate="0.8" data-track-index="0" muted playsinline></video>
+        <div data-hf-id="hf-xn21" id="s10-scrim" data-layout-allow-overflow=""></div>
+        <div data-hf-id="hf-cvtx" id="s10-text">
+          <div data-hf-id="hf-s88o" id="s10-flow">
+            <span data-hf-id="hf-du4g" class="s10-w" id="s10-w1">画像 <b data-hf-id="hf-sc0y">3</b> 枚</span>
+            <span data-hf-id="hf-7wx4" class="s10-w s10-arrow" id="s10-a1">→</span>
+            <span data-hf-id="hf-03hs" class="s10-w" id="s10-w2">スクリプト <b data-hf-id="hf-2uvt">608</b> 行</span>
+            <span data-hf-id="hf-7omp" class="s10-w s10-arrow" id="s10-a2">→</span>
+            <span data-hf-id="hf-8ck5" class="s10-w" id="s10-w3"><b data-hf-id="hf-58o9">84</b> 部品</span>
+          </div>
+          <span data-hf-id="hf-f7sq" id="s10-name">AURORA <span data-hf-id="hf-ta6b">A1</span></span>
+          <span data-hf-id="hf-qow9" id="s10-by">Built with <b data-hf-id="hf-sgkk">Claude Code</b> × <b data-hf-id="hf-3qz9">FreeCAD MCP</b></span>
+        </div>
+        <div data-hf-id="hf-ps2h" id="s10-black"></div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const F = 1 / 60;
+
+          // open from black on the impact, close to black at the end
+          tl.fromTo("#s10-black", { opacity: 1 }, { opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
+          tl.to("#s10-black", { opacity: 1, duration: 0.9, ease: "power1.in" }, 9.1);
+
+          // waterfall-entry: the whole journey in one line, then the name
+          let t = 1.2;
+          [["#s10-w1", 60, 0.18], ["#s10-a1", 36, 0.12], ["#s10-w2", 50, 0.16], ["#s10-a2", 36, 0.12], ["#s10-w3", 60, 0.18]].forEach(([sel, y, d]) => {
+            tl.set(sel, { opacity: 1, y }, t);
+            tl.to(sel, { y: 0, duration: d, ease: "power4.out" }, t);
+            t += d - F;
+          });
+          tl.fromTo("#s10-name", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.22, ease: "expo.out", immediateRender: true }, 3.0);
+          tl.fromTo("#s10-by", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.16, ease: "power4.out", immediateRender: true }, 3.25);
+          tl.fromTo("#s10-scrim", { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "power1.out" }, 0.8);
+
+          window.__timelines["s10-outro"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

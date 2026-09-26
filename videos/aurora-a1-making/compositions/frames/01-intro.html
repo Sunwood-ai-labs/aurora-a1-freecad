@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        #s01-glow {
+          position: absolute;
+          left: 760px;
+          top: 180px;
+          width: 1100px;
+          height: 760px;
+          border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(167, 123, 255, 0.38), rgba(167, 123, 255, 0));
+        }
+        #s01-cam {
+          position: absolute;
+          inset: 0;
+          transform-origin: 50% 50%;
+          will-change: transform;
+        }
+        #s01-car {
+          position: absolute;
+          left: 250px;
+          top: -40px;
+          width: 1920px;
+          height: 1080px;
+        }
+        #s01-title {
+          position: absolute;
+          left: 110px;
+          bottom: 130px;
+          width: 1300px;
+        }
+        #s01-kicker {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 28px;
+          letter-spacing: 0.3em;
+          color: #a77bff;
+          display: inline-block;
+          opacity: 0;
+        }
+        #s01-name {
+          display: flex;
+          gap: 36px;
+          margin-top: 58px; /* Noto's glyph box overhangs a 1.0 line-height by ~0.22em */
+          line-height: 1;
+        }
+        .s01-word {
+          display: inline-block;
+          font-weight: 700;
+          font-size: 188px;
+          letter-spacing: -0.03em;
+          opacity: 0;
+        }
+        #s01-a1 {
+          color: #a77bff;
+        }
+        #s01-sub {
+          margin-top: 50px;
+          font-size: 40px;
+          font-weight: 400;
+          color: #edeaf6;
+          opacity: 0;
+        }
+        #s01-chips {
+          display: flex;
+          gap: 16px;
+          margin-top: 34px;
+        }
+        .s01-chip {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 24px;
+          padding: 10px 20px;
+          border: 2px solid #2e2945;
+          background: #16131f;
+          color: #edeaf6;
+          transform-origin: 50% 50%;
+        }
+        .s01-chip b {
+          color: #a77bff;
+          font-weight: 700;
+        }
+      </style>
+
+      <div data-hf-id="hf-z8c4" id="root" data-composition-id="s01-intro" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-ukx4" id="s01-cam" data-layout-allow-overflow="">
+          <div data-hf-id="hf-ceo1" id="s01-glow"></div>
+          <img data-hf-id="hf-qjlb" id="s01-car" src="assets/renders/hero_front34.png" alt="">
+        </div>
+        <div data-hf-id="hf-p95s" id="s01-title">
+          <div data-hf-id="hf-viip" id="s01-kicker">MAKING OF</div>
+          <div data-hf-id="hf-0odz" id="s01-name">
+            <span data-hf-id="hf-sbdv" class="s01-word" id="s01-aurora">AURORA</span>
+            <span data-hf-id="hf-fv0n" class="s01-word" id="s01-a1">A1</span>
+          </div>
+          <div data-hf-id="hf-j2k5" id="s01-sub">AIエージェントが FreeCAD でF1アッシーを組み上げるまで</div>
+          <div data-hf-id="hf-0e27" id="s01-chips">
+            <div data-hf-id="hf-7lsw" class="s01-chip"><b data-hf-id="hf-ngp2">agent</b> Claude Code</div>
+            <div data-hf-id="hf-kiwh" class="s01-chip"><b data-hf-id="hf-w65s">bridge</b> FreeCAD MCP</div>
+            <div data-hf-id="hf-xwvz" class="s01-chip"><b data-hf-id="hf-ma9j">cad</b> Python · Part API</div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 8;
+          const cam = document.getElementById("s01-cam");
+
+          // multi-phase-camera: pull back -> settle -> slow push, with Lissajous drift
+          const phase = { scale: 1.14 };
+          tl.to(phase, { scale: 1.0, duration: 1.6, ease: "power2.out" }, 0.1);
+          tl.to(phase, { scale: 1.05, duration: 3.2, ease: "power2.inOut" }, 4.2);
+          const drift = { p: 0 };
+          tl.to(
+            drift,
+            {
+              p: Math.PI * 2 * 1.5,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                const dx = Math.sin(drift.p) * 6;
+                const dy = Math.sin(drift.p * 1.3) * 3;
+                cam.style.transform = `scale(${phase.scale}) translate(${dx}px, ${dy}px)`;
+              },
+            },
+            0,
+          );
+          tl.fromTo("#s01-glow", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1.8, ease: "power2.out" }, 0);
+          tl.fromTo("#s01-car", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 0.05);
+
+          // waterfall-entry: kicker (light) -> AURORA (anchor) -> A1 (fragment) -> subtitle
+          const F = 1 / 60;
+          let t = 1.4;
+          tl.set("#s01-kicker", { opacity: 1, y: 40 }, t);
+          tl.to("#s01-kicker", { y: 0, duration: 0.13, ease: "power4.out" }, t);
+          t += 0.13 - F;
+          tl.set("#s01-aurora", { opacity: 1, y: 80 }, t);
+          tl.to("#s01-aurora", { y: 0, duration: 0.2, ease: "power4.out" }, t);
+          t += 0.2 + 2 * F;
+          tl.set("#s01-a1", { opacity: 1, y: 70 }, t);
+          tl.to("#s01-a1", { y: 0, duration: 0.16, ease: "expo.out" }, t);
+          t += 0.16 - F;
+          tl.set("#s01-sub", { opacity: 1, y: 45 }, t);
+          tl.to("#s01-sub", { y: 0, duration: 0.15, ease: "power4.out" }, t);
+
+          // spring-pop-entrance: tool chips as one beat
+          gsap.utils.toArray(".s01-chip").forEach((el, i) => {
+            tl.fromTo(
+              el,
+              { scale: 0, opacity: 0, y: 20 },
+              { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+              2.4 + i * 0.07,
+            );
+          });
+
+          window.__timelines["s01-intro"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

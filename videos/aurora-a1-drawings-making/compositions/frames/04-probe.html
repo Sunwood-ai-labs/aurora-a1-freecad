@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .hd {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1600px;
+        }
+        .hd-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .hd-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .hd-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #d04-code {
+          position: absolute;
+          left: 110px;
+          top: 420px;
+          width: 1060px;
+          height: 560px;
+          border: 2px solid #2e2945;
+          background: #16131f;
+        }
+        #d04-tab {
+          height: 54px;
+          border-bottom: 2px solid #2e2945;
+          display: flex;
+          align-items: center;
+          padding: 0 24px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 22px;
+          color: #a49ebe;
+        }
+        #d04-text {
+          padding: 22px 28px;
+          font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+          font-size: 23px;
+          line-height: 1.6;
+          white-space: pre;
+          font-variant-ligatures: none;
+        }
+        #d04-cards {
+          position: absolute;
+          left: 1230px;
+          top: 420px;
+          width: 580px;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .card {
+          border: 2px solid #2e2945;
+          background: #16131f;
+          padding: 12px 22px;
+          transform-origin: 0% 50%;
+        }
+        .card .k {
+          font-size: 24px;
+          color: #a49ebe;
+        }
+        .card .v {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 34px;
+          margin-top: 4px;
+          font-variant-numeric: tabular-nums;
+        }
+        .card .v em {
+          font-style: normal;
+          color: #a77bff;
+        }
+        .card.bad {
+          border-color: #ff4fa3;
+        }
+        .card.bad .v {
+          color: #ff4fa3;
+        }
+        .card .fix {
+          font-size: 26px;
+          margin-top: 6px;
+        }
+        .card .fix b {
+          color: #a77bff;
+        }
+
+        .gl {
+          display: inline-grid;
+        }
+        .gl > span {
+          grid-area: 1 / 1;
+        }
+        .gl .gl-b {
+          z-index: 2;
+        }
+        .gl .gl-c {
+          z-index: 1;
+          opacity: 0;
+          mix-blend-mode: screen;
+          will-change: transform;
+        }
+        .gl .warm {
+          color: #ff3b6b;
+        }
+        .gl .cool {
+          color: #3be8ff;
+        }
+      </style>
+      <div data-hf-id="hf-j0f3" id="root" data-composition-id="s04-probe" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-0hws" class="hd">
+          <span data-hf-id="hf-8mdi" class="hd-tag" id="d04-tag">STEP 03</span>
+          <span data-hf-id="hf-s4on" class="hd-h1" id="d04-h1">試作</span>
+          <span data-hf-id="hf-3qy8" class="hd-sub" id="d04-sub">量産の前に、テストページ 1 枚で API の挙動を確かめる</span>
+        </div>
+        <div data-hf-id="hf-rgfr" id="d04-code">
+          <div data-hf-id="hf-so6n" id="d04-tab">execute_code · TechDraw probe</div>
+          <div data-hf-id="hf-gpel" id="d04-text"><span data-hf-id="hf-z2q3" id="d04-body"></span></div>
+        </div>
+        <div data-hf-id="hf-iwj9" id="d04-cards">
+          <div data-hf-id="hf-p8ct" class="card" id="d04-c1"><div data-hf-id="hf-4ovk" class="k">外形寸法 makeExtentDim</div><div data-hf-id="hf-294k" class="v"><em data-hf-id="hf-j6ux">545</em> / <em data-hf-id="hf-bdd1">2000</em> mm ✓</div></div>
+          <div data-hf-id="hf-3673" class="card bad" id="d04-c2"><div data-hf-id="hf-ibqk" class="k">距離寸法 makeDistanceDim（期待 1,970）</div><div data-hf-id="hf-mxpy" class="v"><span data-hf-id="hf-gdiq" class="gl" id="d04-gl"><span data-hf-id="hf-0hpz" class="gl-c warm" aria-hidden="true">19,700 ?!</span><span data-hf-id="hf-cjx3" class="gl-c cool" aria-hidden="true">19,700 ?!</span><span data-hf-id="hf-71de" class="gl-b">19,700 ?!</span></span></div><div data-hf-id="hf-ixlz" class="fix">→ 入力は縮尺後の座標。<b data-hf-id="hf-srs2">座標 × Scale</b> で渡す</div></div>
+          <div data-hf-id="hf-493u" style="display:flex;gap:14px"><div data-hf-id="hf-lc37" class="card" id="d04-c3" style="flex:1"><div data-hf-id="hf-ne8w" class="k">断面</div><div data-hf-id="hf-c53h" class="v"><em data-hf-id="hf-czii">742</em> 辺 ✓</div></div>
+          <div data-hf-id="hf-pktm" class="card" id="d04-c4" style="flex:1"><div data-hf-id="hf-o82m" class="k">PDF 出力</div><div data-hf-id="hf-1vlr" class="v">✓</div></div></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 10;
+          const F = 1 / 60;
+          tl.fromTo("#d04-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          // tracking-in done with per-glyph x (transform), not letterSpacing (which snaps to pixels)
+          (function () {
+            const h = document.getElementById("d04-h1");
+            const chars = Array.from(h.textContent);
+            h.textContent = "";
+            chars.forEach((c) => { const g = document.createElement("span"); g.textContent = c; g.style.display = "inline-block"; h.appendChild(g); });
+            const gs = Array.from(h.children), mid = (gs.length - 1) / 2;
+            gs.forEach((g, i) => tl.fromTo(g, { x: (i - mid) * 30 }, { x: 0, duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18));
+          })();
+          tl.fromTo("#d04-h1", { opacity: 0, y: 26, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18);
+          tl.fromTo("#d04-sub", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", immediateRender: true }, 0.5);
+          tl.fromTo("#d04-code", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.55);
+          const L1 = 'page = doc.addObject("TechDraw::DrawPage", "DwgTest")\n';
+          const L2 = 'v = doc.addObject("TechDraw::DrawViewPart", "DwgTestV")\nv.Source = front_wing_parts;  v.Scale = 0.1\n';
+          const L3 = '\nTechDraw.makeExtentDim(v, [], 0)   # → 545\nTechDraw.makeExtentDim(v, [], 1)   # → 2000\n';
+          const L4 = '\nTechDraw.makeDistanceDim(v, "DistanceY",\n                         (-1100, -985), (-1100, 985))\n# → 19700 ?\n';
+          const L5 = '\ns = doc.addObject("TechDraw::DrawViewSection", ...)\nTechDrawGui.exportPageAsPdf(page, "dwgtest.pdf")';
+          const SEQ = [{ t: 0, text: "" }, { t: 1.0, text: L1 }, { t: 1.6, text: L1 + L2 }, { t: 2.4, text: L1 + L2 + L3 },
+                       { t: 4.0, text: L1 + L2 + L3 + L4 }, { t: 6.2, text: L1 + L2 + L3 + L4 + L5 }];
+          const body = document.getElementById("d04-body");
+          const drv = { t: 0 };
+          let last = null;
+          tl.to(drv, {
+            t: DUR, duration: DUR, ease: "none",
+            onUpdate: () => {
+              let txt = "";
+              for (let i = SEQ.length - 1; i >= 0; i--) if (drv.t >= SEQ[i].t) { txt = SEQ[i].text; break; }
+              if (txt !== last) { body.textContent = txt; last = txt; }
+            },
+          }, 0);
+          [["#d04-c1", 2.9], ["#d04-c2", 4.6], ["#d04-c3", 6.7], ["#d04-c4", 6.9]].forEach(([sel, at]) => {
+            tl.fromTo(sel, { scale: 0.6, opacity: 0, filter: "blur(12px)", y: 16 }, { scale: 1, opacity: 1, filter: "blur(0px)", y: 0, duration: 0.5, ease: "power3.out" }, at);
+          });
+          // chromatic-glitch: RGB ghosts jitter on quantized time, then clamp to rest
+          const glitchHash = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+          function glitch(sel, at, dur, maxSplit) {
+            const copies = gsap.utils.toArray(sel + " .gl-c");
+            const amp = { a: 0 };
+            tl.set(amp, { a: 1 }, at);
+            tl.set(copies, { opacity: 0.85 }, at);
+            tl.to(amp, { a: 0, duration: dur, ease: "power3.in", onUpdate: () => {
+              const step = Math.floor(tl.time() / (1 / 24));
+              copies.forEach((el, l) => gsap.set(el, {
+                x: (glitchHash(step * 13 + l * 7) * 2 - 1) * maxSplit * amp.a,
+                y: (glitchHash(step * 29 + l * 11) * 2 - 1) * maxSplit * 0.35 * amp.a,
+              }));
+            } }, at);
+            tl.set(copies, { x: 0, y: 0, opacity: 0 }, at + dur);
+          }
+          glitch("#d04-gl", 4.95, 0.35, 12);
+          glitch("#d04-gl", 5.6, 0.16, 8);
+          window.__timelines["s04-probe"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

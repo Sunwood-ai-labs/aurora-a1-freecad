@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .hd {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1700px;
+        }
+        .hd-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .hd-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .hd-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #d08-count-wrap {
+          position: absolute;
+          left: 110px;
+          top: 410px;
+          width: 560px;
+          display: flex;
+          align-items: baseline;
+          gap: 16px;
+        }
+        #d08-count {
+          display: inline-block;
+          width: 200px;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 150px;
+          line-height: 1;
+          color: #a77bff;
+          font-variant-numeric: tabular-nums;
+          transform-origin: 0% 100%;
+        }
+        #d08-count-lab {
+          font-size: 40px;
+          font-weight: 700;
+        }
+        #d08-groups {
+          position: absolute;
+          left: 110px;
+          top: 600px;
+          width: 560px;
+        }
+        .g {
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 0;
+          border-bottom: 2px solid #2e2945;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 26px;
+          transform-origin: 0% 50%;
+        }
+        .g b {
+          color: #a77bff;
+          font-variant-numeric: tabular-nums;
+        }
+        #d08-box {
+          position: absolute;
+          left: 750px;
+          top: 400px;
+          width: 1070px;
+          height: 600px;
+          overflow: hidden;
+          border: 2px solid #a77bff;
+          background: #f3f3f3;
+        }
+        #d08-img {
+          position: absolute;
+        }
+        #d08-cols {
+          position: absolute;
+          left: 750px;
+          top: 1010px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 22px;
+          color: #a49ebe;
+        }
+        .sheen {
+          position: absolute;
+          top: -10%;
+          left: 0;
+          width: 38%;
+          height: 120%;
+          background: linear-gradient(100deg, rgba(167, 123, 255, 0) 0%, rgba(167, 123, 255, 0.32) 50%, rgba(167, 123, 255, 0) 100%);
+          pointer-events: none;
+          z-index: 3;
+        }
+      </style>
+      <div data-hf-id="hf-spjv" id="root" data-composition-id="s08-bom" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-0hws" class="hd">
+          <span data-hf-id="hf-268u" class="hd-tag" id="d08-tag">STEP 07</span>
+          <span data-hf-id="hf-musa" class="hd-h1" id="d08-h1">部品表</span>
+          <span data-hf-id="hf-8qm4" class="hd-sub" id="d08-sub">全部品の外形寸法と体積を、形状から自動で集計</span>
+        </div>
+        <div data-hf-id="hf-rzf6" id="d08-count-wrap"><span data-hf-id="hf-fyhw" id="d08-count">0</span><span data-hf-id="hf-tt4x" id="d08-count-lab">部品</span></div>
+        <div data-hf-id="hf-wzlo" id="d08-groups">
+          <div data-hf-id="hf-80mv" class="g"><span data-hf-id="hf-lz2r">Chassis</span><b data-hf-id="hf-jk6v">11</b></div>
+          <div data-hf-id="hf-rp6f" class="g"><span data-hf-id="hf-8sbi">Aerodynamics</span><b data-hf-id="hf-mqn3">19</b></div>
+          <div data-hf-id="hf-rave" class="g"><span data-hf-id="hf-6q9w">PowerUnit</span><b data-hf-id="hf-h8mv">11</b></div>
+          <div data-hf-id="hf-qwkd" class="g"><span data-hf-id="hf-1mr7">Drivetrain</span><b data-hf-id="hf-upv4">5</b></div>
+          <div data-hf-id="hf-topk" class="g"><span data-hf-id="hf-4nv4">Suspension</span><b data-hf-id="hf-pjvr">8</b></div>
+          <div data-hf-id="hf-taej" class="g"><span data-hf-id="hf-tb7k">Wheels ×4</span><b data-hf-id="hf-lpar">24</b></div>
+          <div data-hf-id="hf-sw3i" class="g"><span data-hf-id="hf-x0f2">Livery</span><b data-hf-id="hf-tiy1">6</b></div>
+        </div>
+        <div data-hf-id="hf-lwrr" id="d08-box"><img data-hf-id="hf-rtsb" id="d08-img" src="assets/sheets/S10_BOM1.png" alt="" data-layout-allow-overflow=""><div data-hf-id="hf-49ar" class="sheen" id="d08-sheen" data-layout-allow-overlap=""></div></div>
+        <div data-hf-id="hf-bi4t" id="d08-cols">No. · Group · Part · L (X) · W (Y) · H (Z) · Vol cm³</div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const F = 1 / 60;
+          const PX = 3176 / 420, K = 1.1, BW = 1070, BH = 600;
+          const img = document.getElementById("d08-img");
+          img.style.width = 3176 * K + "px";
+          img.style.height = 2246 * K + "px";
+          img.style.left = BW / 2 - 160 * PX * K + "px";
+          img.style.top = BH / 2 - (297 - 240) * PX * K + "px";
+          // pan down the table: page Y 240 -> 98 mm
+          const PAN = (240 - 98) * PX * K;
+
+          tl.fromTo("#d08-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          // tracking-in done with per-glyph x (transform), not letterSpacing (which snaps to pixels)
+          (function () {
+            const h = document.getElementById("d08-h1");
+            const chars = Array.from(h.textContent);
+            h.textContent = "";
+            chars.forEach((c) => { const g = document.createElement("span"); g.textContent = c; g.style.display = "inline-block"; h.appendChild(g); });
+            const gs = Array.from(h.children), mid = (gs.length - 1) / 2;
+            gs.forEach((g, i) => tl.fromTo(g, { x: (i - mid) * 30 }, { x: 0, duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18));
+          })();
+          tl.fromTo("#d08-h1", { opacity: 0, y: 26, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18);
+          tl.fromTo("#d08-sub", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", immediateRender: true }, 0.5);
+          tl.fromTo("#d08-box", { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 0.6);
+          tl.fromTo("#d08-cols", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.0);
+          tl.fromTo(img, { y: 0 }, { y: -PAN, duration: 7.5, ease: "power1.inOut" }, 1.2);
+
+          // counting-dynamic-scale: 0 -> 84
+          const c = document.getElementById("d08-count");
+          const st = { v: 0 };
+          tl.to(st, { v: 84, duration: 2.2, ease: "power3.out", onUpdate: () => { c.textContent = Math.round(st.v); } }, 0.9);
+          tl.fromTo(c, { scale: 0.6 }, { scale: 1, duration: 2.2, ease: "power3.out" }, 0.9);
+          gsap.utils.toArray(".g").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0.7, opacity: 0, filter: "blur(12px)", x: -16 }, { scale: 1, opacity: 1, filter: "blur(0px)", x: 0, duration: 0.45, ease: "power3.out" }, 1.4 + i * 0.07);
+          });
+          tl.fromTo("#d08-sheen", { x: -520 }, { x: 1300, duration: 0.9, ease: "power2.inOut" }, 1.0);
+          window.__timelines["s08-bom"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

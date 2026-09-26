@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .hd {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1600px;
+        }
+        .hd-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .hd-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .hd-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #d03-cam {
+          position: absolute;
+          left: 110px;
+          top: 420px;
+          width: 1700px;
+          height: 560px;
+          transform-origin: 50% 50%;
+          will-change: transform;
+        }
+        #d03-grid {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 22px 20px;
+        }
+        .th {
+          transform-origin: 50% 50%;
+        }
+        .th img {
+          display: block;
+          width: 100%;
+          height: 186px;
+          object-fit: cover;
+          border: 2px solid #2e2945;
+        }
+        .th .cap {
+          margin-top: 10px;
+          display: flex;
+          gap: 10px;
+          align-items: baseline;
+          font-size: 24px;
+          font-weight: 700;
+          white-space: nowrap;
+        }
+        .th .cap i {
+          font-style: normal;
+          font-family: "JetBrains Mono", monospace;
+          color: #a77bff;
+          font-size: 22px;
+        }
+        .th.sec img {
+          border-color: #a77bff;
+        }
+        #d03-legend {
+          position: absolute;
+          right: 110px;
+          top: 300px;
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          font-size: 26px;
+          color: #a49ebe;
+        }
+        #d03-legend span {
+          width: 22px;
+          height: 22px;
+          border: 3px solid #a77bff;
+          display: inline-block;
+        }
+      </style>
+      <div data-hf-id="hf-9ocn" id="root" data-composition-id="s03-plan" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-0hws" class="hd">
+          <span data-hf-id="hf-jh70" class="hd-tag" id="d03-tag">STEP 02</span>
+          <span data-hf-id="hf-5l9n" class="hd-h1" id="d03-h1">構成</span>
+          <span data-hf-id="hf-49fn" class="hd-sub" id="d03-sub">A3 × 11 枚。全体 → 部品ごとの詳細 → 部品表</span>
+        </div>
+        <div data-hf-id="hf-fcg0" id="d03-legend"><span data-hf-id="hf-uckh"></span>断面図を含むシート</div>
+        <div data-hf-id="hf-xlqi" id="d03-cam">
+          <div data-hf-id="hf-ags9" id="d03-grid">
+            <div data-hf-id="hf-en3o" class="th"><img data-hf-id="hf-0l8h" src="assets/sheets/S01_GA.png" alt=""><div data-hf-id="hf-nih5" class="cap"><i data-hf-id="hf-b7wv">01</i>総組立図</div></div>
+            <div data-hf-id="hf-cwmz" class="th sec"><img data-hf-id="hf-yqjl" src="assets/sheets/S02_CL_Section.png" alt=""><div data-hf-id="hf-x2lp" class="cap"><i data-hf-id="hf-atlu">02</i>縦断面</div></div>
+            <div data-hf-id="hf-y7zv" class="th sec"><img data-hf-id="hf-6sgz" src="assets/sheets/S03_FrontWing.png" alt=""><div data-hf-id="hf-pvo3" class="cap"><i data-hf-id="hf-afat">03</i>Fウイング</div></div>
+            <div data-hf-id="hf-xtou" class="th sec"><img data-hf-id="hf-ga8p" src="assets/sheets/S04_RearWing.png" alt=""><div data-hf-id="hf-2cvb" class="cap"><i data-hf-id="hf-d7g0">04</i>Rウイング</div></div>
+            <div data-hf-id="hf-xfdt" class="th sec"><img data-hf-id="hf-qbjh" src="assets/sheets/S05_Chassis.png" alt=""><div data-hf-id="hf-mmx7" class="cap"><i data-hf-id="hf-ct4z">05</i>モノコック</div></div>
+            <div data-hf-id="hf-x12s" class="th sec"><img data-hf-id="hf-21gj" src="assets/sheets/S06_Bodywork.png" alt=""><div data-hf-id="hf-75ta" class="cap"><i data-hf-id="hf-cety">06</i>ボディ</div></div>
+            <div data-hf-id="hf-wmrr" class="th sec"><img data-hf-id="hf-tmlv" src="assets/sheets/S07_Wheels.png" alt=""><div data-hf-id="hf-coau" class="cap"><i data-hf-id="hf-c0ix">07</i>ホイール</div></div>
+            <div data-hf-id="hf-jte4" class="th"><img data-hf-id="hf-rvrd" src="assets/sheets/S08_Suspension.png" alt=""><div data-hf-id="hf-yrlg" class="cap"><i data-hf-id="hf-8fro">08</i>サスペンション</div></div>
+            <div data-hf-id="hf-w8gq" class="th sec"><img data-hf-id="hf-dfh0" src="assets/sheets/S09_PowerUnit.png" alt=""><div data-hf-id="hf-7ce0" class="cap"><i data-hf-id="hf-81gn">09</i>パワーユニット</div></div>
+            <div data-hf-id="hf-imh1" class="th"><img data-hf-id="hf-ehic" src="assets/sheets/S10_BOM1.png" alt=""><div data-hf-id="hf-ev6m" class="cap"><i data-hf-id="hf-cdvp">10</i>部品表 1</div></div>
+            <div data-hf-id="hf-j0s2" class="th"><img data-hf-id="hf-gmhk" src="assets/sheets/S11_BOM2.png" alt=""><div data-hf-id="hf-f9hn" class="cap"><i data-hf-id="hf-cs6q">11</i>部品表 2</div></div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 10;
+          const F = 1 / 60;
+          tl.fromTo("#d03-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          // tracking-in done with per-glyph x (transform), not letterSpacing (which snaps to pixels)
+          (function () {
+            const h = document.getElementById("d03-h1");
+            const chars = Array.from(h.textContent);
+            h.textContent = "";
+            chars.forEach((c) => { const g = document.createElement("span"); g.textContent = c; g.style.display = "inline-block"; h.appendChild(g); });
+            const gs = Array.from(h.children), mid = (gs.length - 1) / 2;
+            gs.forEach((g, i) => tl.fromTo(g, { x: (i - mid) * 30 }, { x: 0, duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18));
+          })();
+          tl.fromTo("#d03-h1", { opacity: 0, y: 26, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18);
+          tl.fromTo("#d03-sub", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", immediateRender: true }, 0.5);
+          // spring-pop-entrance: 11 sheets as one beat (stagger capped at ~0.5 s)
+          gsap.utils.toArray(".th").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0, opacity: 0, filter: "blur(12px)", y: 24 }, { scale: 1, opacity: 1, filter: "blur(0px)", y: 0, duration: 0.55, ease: "power3.out" }, 0.9 + i * 0.045);
+          });
+          tl.fromTo("#d03-legend", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 2.2);
+          const cam = document.getElementById("d03-cam");
+          const phase = { scale: 0.97 };
+          tl.to(phase, { scale: 1.0, duration: 1.4, ease: "power2.out" }, 0.8);
+          tl.to(phase, { scale: 1.04, duration: 5.0, ease: "power2.inOut" }, 4.5);
+          const drift = { p: 0 };
+          tl.to(drift, {
+            p: Math.PI * 2, duration: DUR, ease: "none",
+            onUpdate: () => {
+              cam.style.transform = `scale(${phase.scale}) translate(${Math.sin(drift.p) * 5}px, ${Math.sin(drift.p * 1.3) * 3}px)`;
+            },
+          }, 0);
+          window.__timelines["s03-plan"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

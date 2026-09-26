@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .hd {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1600px;
+        }
+        .hd-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .hd-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .hd-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #d02-chat {
+          position: absolute;
+          left: 110px;
+          top: 420px;
+          width: 1700px;
+          display: flex;
+          flex-direction: column;
+          gap: 26px;
+        }
+        .bub {
+          max-width: 1040px;
+          padding: 24px 32px;
+          font-size: 36px;
+          line-height: 1.45;
+          border: 2px solid #2e2945;
+          background: #16131f;
+        }
+        .bub .who {
+          display: block;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 22px;
+          letter-spacing: 0.12em;
+          color: #a49ebe;
+          margin-bottom: 6px;
+        }
+        .user {
+          align-self: flex-end;
+          border-color: #a77bff;
+          transform-origin: 100% 50%;
+        }
+        .agent {
+          align-self: flex-start;
+          transform-origin: 0% 50%;
+        }
+        .agent b {
+          color: #a77bff;
+        }
+        #d02-req {
+          position: absolute;
+          right: 110px;
+          top: 930px;
+          display: flex;
+          gap: 16px;
+        }
+        .req {
+          font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          padding: 10px 20px;
+          color: #0c0b14;
+          background: #a77bff;
+          transform-origin: 50% 50%;
+        }
+      </style>
+      <div data-hf-id="hf-y2pa" id="root" data-composition-id="s02-ask" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-0hws" class="hd">
+          <span data-hf-id="hf-l24a" class="hd-tag" id="d02-tag">STEP 01</span>
+          <span data-hf-id="hf-tlcq" class="hd-h1" id="d02-h1">依頼</span>
+          <span data-hf-id="hf-d4mn" class="hd-sub" id="d02-sub">会話の中で、図面の要件が決まっていく</span>
+        </div>
+        <div data-hf-id="hf-kw5w" id="d02-chat">
+          <div data-hf-id="hf-xedh" class="bub user" id="d02-b1"><span data-hf-id="hf-inn8" class="who">USER</span>FreeCAD で出図ってできる？</div>
+          <div data-hf-id="hf-0687" class="bub agent" id="d02-b2"><span data-hf-id="hf-bjzg" class="who">AGENT</span><b data-hf-id="hf-fehr">TechDraw</b> ワークベンチで、投影図・寸法・断面図を作って PDF / DXF で出力できます。</div>
+          <div data-hf-id="hf-wyzf" class="bub user" id="d02-b3"><span data-hf-id="hf-t45o" class="who">USER</span>細かいパーツごとの寸法とかもほしいです！断面図もほしい</div>
+        </div>
+        <div data-hf-id="hf-8ijy" id="d02-req">
+          <div data-hf-id="hf-fdzo" class="req">部品ごとの寸法</div>
+          <div data-hf-id="hf-bwmk" class="req">断面図</div>
+          <div data-hf-id="hf-7rin" class="req">A3 · PDF</div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const F = 1 / 60;
+          tl.fromTo("#d02-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          // tracking-in done with per-glyph x (transform), not letterSpacing (which snaps to pixels)
+          (function () {
+            const h = document.getElementById("d02-h1");
+            const chars = Array.from(h.textContent);
+            h.textContent = "";
+            chars.forEach((c) => { const g = document.createElement("span"); g.textContent = c; g.style.display = "inline-block"; h.appendChild(g); });
+            const gs = Array.from(h.children), mid = (gs.length - 1) / 2;
+            gs.forEach((g, i) => tl.fromTo(g, { x: (i - mid) * 30 }, { x: 0, duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18));
+          })();
+          tl.fromTo("#d02-h1", { opacity: 0, y: 26, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18);
+          tl.fromTo("#d02-sub", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", immediateRender: true }, 0.5);
+          [["#d02-b1", 0.9], ["#d02-b2", 2.1], ["#d02-b3", 4.0]].forEach(([sel, at]) => {
+            tl.fromTo(sel, { scale: 0.6, opacity: 0, filter: "blur(12px)", y: 20 }, { scale: 1, opacity: 1, filter: "blur(0px)", y: 0, duration: 0.5, ease: "power3.out" }, at);
+          });
+          gsap.utils.toArray(".req").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0, opacity: 0, filter: "blur(12px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" }, 5.2 + i * 0.08);
+          });
+          window.__timelines["s02-ask"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

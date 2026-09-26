@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .s02-head {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1500px;
+        }
+        .s02-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .s02-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .s02-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #s02-term {
+          position: absolute;
+          left: 110px;
+          top: 440px;
+          width: 1080px;
+          height: 520px;
+          border: 2px solid #2e2945;
+          background: #16131f;
+        }
+        #s02-term-bar {
+          height: 56px;
+          border-bottom: 2px solid #2e2945;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 0 24px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 22px;
+          color: #a49ebe;
+        }
+        .s02-dot {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #2e2945;
+        }
+        #s02-text {
+          padding: 26px 32px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 27px;
+          line-height: 1.5;
+          white-space: pre;
+          color: #edeaf6;
+          font-variant-ligatures: none;
+        }
+        #s02-cursor {
+          display: inline-block;
+          width: 14px;
+          height: 30px;
+          background: #a77bff;
+          vertical-align: -5px;
+        }
+        #s02-pills {
+          position: absolute;
+          left: 1270px;
+          top: 440px;
+          width: 540px;
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+        }
+        .s02-pill {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 24px 28px;
+          border: 2px solid #2e2945;
+          background: #16131f;
+          transform-origin: 0% 50%;
+        }
+        .s02-led {
+          width: 18px;
+          height: 18px;
+          background: #a77bff;
+          box-shadow: 0 0 18px 4px rgba(167, 123, 255, 0.6);
+          flex: none;
+        }
+        .s02-k {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 22px;
+          letter-spacing: 0.12em;
+          color: #a49ebe;
+          width: 210px;
+          flex: none;
+        }
+        .s02-v {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 34px;
+          color: #edeaf6;
+        }
+      </style>
+
+      <div data-hf-id="hf-7s29" id="root" data-composition-id="s02-connect" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-86ck" class="s02-head">
+          <span data-hf-id="hf-7hec" class="s02-tag" id="s02-tag">STEP 01</span>
+          <span data-hf-id="hf-qlmp" class="s02-h1" id="s02-h1">接続確認</span>
+          <span data-hf-id="hf-gk5n" class="s02-sub" id="s02-sub">作業の前に、FreeCAD MCP が応答するかを確かめる</span>
+        </div>
+
+        <div data-hf-id="hf-i3kl" id="s02-term">
+          <div data-hf-id="hf-3v8t" id="s02-term-bar">
+            <span data-hf-id="hf-k0h4" class="s02-dot"></span><span data-hf-id="hf-64ww" class="s02-dot"></span><span data-hf-id="hf-4xzt" class="s02-dot"></span>
+            <span data-hf-id="hf-a61m">claude-code › freecad-mcp</span>
+          </div>
+          <div data-hf-id="hf-jmzu" id="s02-text"><span data-hf-id="hf-1114" id="s02-body"></span><span data-hf-id="hf-taz6" id="s02-cursor"></span></div>
+        </div>
+
+        <div data-hf-id="hf-0269" id="s02-pills">
+          <div data-hf-id="hf-o387" class="s02-pill"><span data-hf-id="hf-jw8m" class="s02-led"></span><span data-hf-id="hf-kzkc" class="s02-k">RPC SERVER</span><span data-hf-id="hf-xg0y" class="s02-v">running</span></div>
+          <div data-hf-id="hf-qrfb" class="s02-pill"><span data-hf-id="hf-wj8a" class="s02-led"></span><span data-hf-id="hf-eyy9" class="s02-k">GUI DISPATCH</span><span data-hf-id="hf-l6k4" class="s02-v">healthy</span></div>
+          <div data-hf-id="hf-qd4a" class="s02-pill"><span data-hf-id="hf-wxjb" class="s02-led"></span><span data-hf-id="hf-qn80" class="s02-k">DOCUMENTS</span><span data-hf-id="hf-kp9j" class="s02-v">0 open</span></div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 8;
+
+          // header waterfall
+          const F = 1 / 60;
+          tl.fromTo("#s02-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          tl.fromTo("#s02-h1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.out", immediateRender: true }, 0.27 - F);
+          tl.fromTo("#s02-sub", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.15, ease: "power4.out", immediateRender: true }, 0.48);
+
+          // terminal panel arrives
+          tl.fromTo("#s02-term", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 0.5);
+
+          // discrete-text-sequence: typed call -> bulk JSON response -> second call -> []
+          const CALL1 = "› mcp__freecad__get_rpc_status";
+          const JSON1 =
+            '\n{\n  "success": true,\n  "rpc_server": "running",\n  "gui_dispatch": { "state": "healthy" },\n  "async_jobs_running": []\n}';
+          const CALL2 = "\n› mcp__freecad__list_documents";
+          const RES2 = "\n[]";
+          const SEQ = [{ t: 0, text: "" }];
+          const typeStart = 1.0;
+          for (let i = 1; i <= CALL1.length; i++) SEQ.push({ t: typeStart + i * 0.035, text: CALL1.slice(0, i) });
+          const t1 = typeStart + CALL1.length * 0.035 + 0.45; // think pause, then bulk response
+          SEQ.push({ t: t1, text: CALL1 + JSON1 });
+          const t2 = t1 + 1.1;
+          for (let i = 1; i <= CALL2.length; i++) SEQ.push({ t: t2 + i * 0.035, text: CALL1 + JSON1 + CALL2.slice(0, i) });
+          const t3 = t2 + CALL2.length * 0.035 + 0.35;
+          SEQ.push({ t: t3, text: CALL1 + JSON1 + CALL2 + RES2 });
+
+          const bodyEl = document.getElementById("s02-body");
+          const cursorEl = document.getElementById("s02-cursor");
+          const drv = { t: 0 };
+          let last = null;
+          tl.to(
+            drv,
+            {
+              t: DUR,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                let txt = "";
+                for (let i = SEQ.length - 1; i >= 0; i--) {
+                  if (drv.t >= SEQ[i].t) {
+                    txt = SEQ[i].text;
+                    break;
+                  }
+                }
+                if (txt !== last) {
+                  bodyEl.textContent = txt;
+                  last = txt;
+                }
+                cursorEl.style.opacity = Math.sin(drv.t * Math.PI * 2 * 1.6) > 0 ? "1" : "0";
+              },
+            },
+            0,
+          );
+
+          // spring-pop-entrance: status pills land when their answers arrive
+          const pills = gsap.utils.toArray(".s02-pill");
+          [t1 + 0.15, t1 + 0.25, t3 + 0.15].forEach((at, i) => {
+            tl.fromTo(
+              pills[i],
+              { scale: 0, opacity: 0, y: 18 },
+              { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
+              at,
+            );
+          });
+
+          window.__timelines["s02-connect"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .s09-head {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1500px;
+        }
+        .s09-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .s09-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .s09-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #s09-files {
+          position: absolute;
+          left: 110px;
+          top: 450px;
+          width: 1700px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 36px;
+        }
+        .s09-card {
+          border: 2px solid #2e2945;
+          background: #16131f;
+          padding: 34px 34px 30px;
+          transform-origin: 50% 100%;
+        }
+        .s09-card.hero {
+          border-color: #a77bff;
+        }
+        .s09-ext {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 76px;
+          line-height: 1;
+          color: #a77bff;
+        }
+        .s09-name {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 28px;
+          margin-top: 26px;
+        }
+        .s09-meta {
+          font-size: 28px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        .s09-meta b {
+          font-family: "JetBrains Mono", monospace;
+          color: #edeaf6;
+          font-variant-numeric: tabular-nums;
+        }
+        #s09-path {
+          position: absolute;
+          left: 110px;
+          top: 830px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 26px;
+          color: #a49ebe;
+        }
+      </style>
+
+      <div data-hf-id="hf-hpqg" id="root" data-composition-id="s09-export" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-djml" class="s09-head">
+          <span data-hf-id="hf-hnwt" class="s09-tag" id="s09-tag">STEP 08</span>
+          <span data-hf-id="hf-zqpc" class="s09-h1" id="s09-h1">出力</span>
+          <span data-hf-id="hf-tlgd" class="s09-sub" id="s09-sub">ネイティブ形式・中間形式・生成スクリプトを残す</span>
+        </div>
+        <div data-hf-id="hf-o1l7" id="s09-files">
+          <div data-hf-id="hf-2ii1" class="s09-card"><div data-hf-id="hf-6p0q" class="s09-ext">.FCStd</div><div data-hf-id="hf-qygb" class="s09-name">AURORA_A1.FCStd</div><div data-hf-id="hf-p9a7" class="s09-meta"><b data-hf-id="hf-v2d2">2.4 MB</b> · FreeCAD ネイティブ</div></div>
+          <div data-hf-id="hf-n97b" class="s09-card hero"><div data-hf-id="hf-9y34" class="s09-ext">.step</div><div data-hf-id="hf-2par" class="s09-name">AURORA_A1.step</div><div data-hf-id="hf-ngvl" class="s09-meta"><b data-hf-id="hf-6202">10.7 MB</b> · 他の CAD でも開ける</div></div>
+          <div data-hf-id="hf-5hr1" class="s09-card"><div data-hf-id="hf-3utp" class="s09-ext">.py</div><div data-hf-id="hf-na8n" class="s09-name">build_aurora_a1.py</div><div data-hf-id="hf-qine" class="s09-meta"><b data-hf-id="hf-6nf9">608 行</b> · いつでも再生成</div></div>
+        </div>
+        <div data-hf-id="hf-8nxb" id="s09-path">C:\Prj\FreeCAD_Demo_001\aurora_a1\</div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const F = 1 / 60;
+          tl.fromTo("#s09-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          tl.fromTo("#s09-h1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.out", immediateRender: true }, 0.27 - F);
+          tl.fromTo("#s09-sub", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.15, ease: "power4.out", immediateRender: true }, 0.48);
+
+          // spring-pop-entrance: three outputs as one beat
+          gsap.utils.toArray(".s09-card").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.55, ease: "power3.out" }, 0.9 + i * 0.08);
+          });
+          tl.fromTo("#s09-path", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 1.8);
+          // quiet emphasis on the STEP card before the outro
+          tl.fromTo(".s09-card.hero", { y: 0 }, { y: -12, duration: 1.2, ease: "power2.out", immediateRender: false }, 3.2);
+
+          window.__timelines["s09-export"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

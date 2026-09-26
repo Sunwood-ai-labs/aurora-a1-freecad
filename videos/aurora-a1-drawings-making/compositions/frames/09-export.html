@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .hd {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1700px;
+        }
+        .hd-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .hd-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .hd-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #d09-cards {
+          position: absolute;
+          left: 110px;
+          top: 450px;
+          width: 1700px;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+        }
+        .c {
+          border: 2px solid #2e2945;
+          background: #16131f;
+          padding: 30px 28px;
+          transform-origin: 50% 100%;
+        }
+        .c.hero {
+          border-color: #a77bff;
+        }
+        .c .big {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 64px;
+          line-height: 1;
+          color: #a77bff;
+        }
+        .c .nm {
+          font-family: "JetBrains Mono", monospace;
+          font-size: 26px;
+          margin-top: 22px;
+        }
+        .c .mt {
+          font-size: 26px;
+          color: #a49ebe;
+          margin-top: 8px;
+        }
+        #d09-path {
+          position: absolute;
+          left: 110px;
+          top: 800px;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 26px;
+          color: #a49ebe;
+        }
+      </style>
+      <div data-hf-id="hf-hpqg" id="root" data-composition-id="s09-export" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-0hws" class="hd">
+          <span data-hf-id="hf-rqbg" class="hd-tag" id="d09-tag">STEP 08</span>
+          <span data-hf-id="hf-3md1" class="hd-h1" id="d09-h1">出力</span>
+          <span data-hf-id="hf-ihih" class="hd-sub" id="d09-sub">紙で見る PDF、CAD に渡す DXF、そして再生成できるスクリプト</span>
+        </div>
+        <div data-hf-id="hf-ogog" id="d09-cards">
+          <div data-hf-id="hf-8kvx" class="c hero"><div data-hf-id="hf-zs7x" class="big">11×</div><div data-hf-id="hf-ps97" class="nm">.pdf</div><div data-hf-id="hf-c8w0" class="mt">A3 図面</div></div>
+          <div data-hf-id="hf-kmmr" class="c"><div data-hf-id="hf-h7sh" class="big">11×</div><div data-hf-id="hf-vd1n" class="nm">.dxf</div><div data-hf-id="hf-ofni" class="mt">CAD 連携用</div></div>
+          <div data-hf-id="hf-7mcz" class="c"><div data-hf-id="hf-na6n" class="big">.py</div><div data-hf-id="hf-lqky" class="nm">make_drawings.py</div><div data-hf-id="hf-06re" class="mt">モデル変更後も再出図</div></div>
+          <div data-hf-id="hf-781y" class="c"><div data-hf-id="hf-6xdk" class="big">11p</div><div data-hf-id="hf-akjk" class="nm">AURORA_A1.FCStd</div><div data-hf-id="hf-eeyb" class="mt">図面ページも保存</div></div>
+        </div>
+        <div data-hf-id="hf-bi6n" id="d09-path">C:\Prj\FreeCAD_Demo_001\aurora_a1\drawings\</div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const F = 1 / 60;
+          tl.fromTo("#d09-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          // tracking-in done with per-glyph x (transform), not letterSpacing (which snaps to pixels)
+          (function () {
+            const h = document.getElementById("d09-h1");
+            const chars = Array.from(h.textContent);
+            h.textContent = "";
+            chars.forEach((c) => { const g = document.createElement("span"); g.textContent = c; g.style.display = "inline-block"; h.appendChild(g); });
+            const gs = Array.from(h.children), mid = (gs.length - 1) / 2;
+            gs.forEach((g, i) => tl.fromTo(g, { x: (i - mid) * 30 }, { x: 0, duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18));
+          })();
+          tl.fromTo("#d09-h1", { opacity: 0, y: 26, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18);
+          tl.fromTo("#d09-sub", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", immediateRender: true }, 0.5);
+          gsap.utils.toArray(".c").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0, opacity: 0, filter: "blur(12px)", y: 24 }, { scale: 1, opacity: 1, filter: "blur(0px)", y: 0, duration: 0.55, ease: "power3.out" }, 0.9 + i * 0.08);
+          });
+          tl.fromTo("#d09-path", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 1.8);
+          window.__timelines["s09-export"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

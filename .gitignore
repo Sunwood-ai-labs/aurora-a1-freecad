@@ -1,0 +1,7 @@
+__pycache__/
+*.FCBak
+articles/
+node_modules/
+.hyperframes/
+.thumbnails/
+.waveform-cache/

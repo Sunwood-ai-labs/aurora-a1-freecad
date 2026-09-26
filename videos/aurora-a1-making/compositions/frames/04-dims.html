@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .s04-head {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1500px;
+        }
+        .s04-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .s04-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .s04-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #s04-cam {
+          position: absolute;
+          left: 40px;
+          top: 250px;
+          width: 1267px;
+          height: 713px;
+          transform-origin: 50% 50%;
+          will-change: transform;
+        }
+        /* drawing authored in the render's own 1920x1080 pixel space, scaled 0.66 */
+        #s04-sheet {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 1920px;
+          height: 1080px;
+          transform: scale(0.66);
+          transform-origin: 0 0;
+        }
+        #s04-side {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+        }
+        #s04-svg {
+          position: absolute;
+          inset: 0;
+          overflow: visible;
+        }
+        .s04-dim {
+          fill: none;
+          stroke: #a77bff;
+          stroke-width: 4;
+          stroke-linecap: square;
+        }
+        .s04-ext {
+          fill: none;
+          stroke: #a49ebe;
+          stroke-width: 2.5;
+          stroke-dasharray: 10 8;
+        }
+        .s04-lab {
+          font-family: "JetBrains Mono", "Noto Sans JP", monospace;
+          font-size: 40px;
+          font-weight: 700;
+          fill: #edeaf6;
+        }
+        .s04-lab tspan.m {
+          fill: #a49ebe;
+          font-weight: 400;
+        }
+        .s04-lab-bg {
+          fill: #0c0b14;
+        }
+        #s04-stats {
+          position: absolute;
+          left: 1340px;
+          top: 300px;
+          width: 470px;
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+        }
+        .s04-stat {
+          border: 2px solid #2e2945;
+          background: #16131f;
+          padding: 18px 24px;
+          transform-origin: 0% 50%;
+        }
+        .s04-k {
+          font-size: 24px;
+          color: #a49ebe;
+        }
+        .s04-v {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 36px;
+          font-variant-numeric: tabular-nums;
+          margin-top: 4px;
+        }
+        .s04-v small {
+          font-size: 24px;
+          color: #a49ebe;
+          font-weight: 400;
+        }
+        #s04-note {
+          font-size: 24px;
+          color: #a49ebe;
+          margin-top: 6px;
+        }
+      </style>
+
+      <div data-hf-id="hf-inas" id="root" data-composition-id="s04-dims" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-rg46" class="s04-head">
+          <span data-hf-id="hf-oyg6" class="s04-tag" id="s04-tag">STEP 03</span>
+          <span data-hf-id="hf-sxxz" class="s04-h1" id="s04-h1">寸法抽出</span>
+          <span data-hf-id="hf-au1y" class="s04-sub" id="s04-sub">三面図の主要諸元を、そのままパラメータへ</span>
+        </div>
+
+        <div data-hf-id="hf-j8gi" id="s04-cam">
+          <div data-hf-id="hf-2mry" id="s04-sheet">
+            <img data-hf-id="hf-5ijg" id="s04-side" src="assets/renders/side_ortho.png" alt="">
+            <!-- x_px = 460.865 + 0.291892 * x_mm ; y_px = 691.784 - 0.291892 * z_mm -->
+            <svg data-hf-id="hf-zlvi" id="s04-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+              <!-- overall length: -1120 .. 4520 mm -->
+              <path data-hf-id="hf-rx3z" class="s04-ext s04-e1" d="M 133.9 700 L 133.9 830" />
+              <path data-hf-id="hf-8pxp" class="s04-ext s04-e1" d="M 1780.2 700 L 1780.2 830" />
+              <path data-hf-id="hf-3fad" class="s04-dim" id="s04-len" d="M 133.9 815 L 1780.2 815" />
+              <!-- wheelbase: 0 .. 3600 mm -->
+              <path data-hf-id="hf-skbl" class="s04-ext s04-e2" d="M 460.9 600 L 460.9 760" />
+              <path data-hf-id="hf-ptmb" class="s04-ext s04-e2" d="M 1511.7 600 L 1511.7 760" />
+              <path data-hf-id="hf-udn1" class="s04-dim" id="s04-wb" d="M 460.9 745 L 1511.7 745" />
+              <!-- overall height: 0 .. 965 mm -->
+              <path data-hf-id="hf-2ufx" class="s04-ext s04-e3" d="M 1790 691.8 L 1880 691.8" />
+              <path data-hf-id="hf-100p" class="s04-ext s04-e3" d="M 1790 410.1 L 1880 410.1" />
+              <path data-hf-id="hf-zsde" class="s04-dim" id="s04-h" d="M 1865 691.8 L 1865 410.1" />
+
+              <g data-hf-id="hf-eb4m" id="s04-l1">
+                <rect data-hf-id="hf-80gg" class="s04-lab-bg" x="560" y="836" width="800" height="60" />
+                <text data-hf-id="hf-rzob" class="s04-lab" x="960" y="881" text-anchor="middle">全長 5,600 <tspan data-hf-id="hf-2lwg" class="m">／ モデル 5,640</tspan></text>
+              </g>
+              <g data-hf-id="hf-ad0l" id="s04-l2">
+                <rect data-hf-id="hf-qyqj" class="s04-lab-bg" x="746" y="676" width="480" height="56" />
+                <text data-hf-id="hf-b7vc" class="s04-lab" x="986" y="718" text-anchor="middle">WB 3,600 <tspan data-hf-id="hf-omac" class="m">一致</tspan></text>
+              </g>
+              <g data-hf-id="hf-9lcs" id="s04-l3">
+                <text data-hf-id="hf-wp09" class="s04-lab" x="1865" y="390" text-anchor="middle">全高 950</text>
+                <text data-hf-id="hf-ro7w" class="s04-lab" x="1865" y="326" text-anchor="middle"><tspan data-hf-id="hf-jc4m" class="m">モデル 965</tspan></text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-nskm" id="s04-stats">
+          <div data-hf-id="hf-f2d2" class="s04-stat"><div data-hf-id="hf-73fo" class="s04-k">全幅</div><div data-hf-id="hf-xc5s" class="s04-v">2,000 <small data-hf-id="hf-o5vk">→ 2,002 mm</small></div></div>
+          <div data-hf-id="hf-omxm" class="s04-stat"><div data-hf-id="hf-4w3n" class="s04-k">フロントタイヤ</div><div data-hf-id="hf-lu18" class="s04-v">305/660 R18</div></div>
+          <div data-hf-id="hf-p18n" class="s04-stat"><div data-hf-id="hf-amks" class="s04-k">リアタイヤ</div><div data-hf-id="hf-28t8" class="s04-v">405/670 R18</div></div>
+          <div data-hf-id="hf-pfjo" class="s04-stat"><div data-hf-id="hf-0hpq" class="s04-k">フロントウイング幅</div><div data-hf-id="hf-5t48" class="s04-v">2,000 <small data-hf-id="hf-iljm">mm</small></div></div>
+          <div data-hf-id="hf-z5cd" id="s04-note">図面にない寸法は画像から推定</div>
+        </div>
+      </div>
+
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const DUR = 10;
+          const F = 1 / 60;
+
+          tl.fromTo("#s04-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          tl.fromTo("#s04-h1", { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.2, ease: "power4.out", immediateRender: true }, 0.27 - F);
+          tl.fromTo("#s04-sub", { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.15, ease: "power4.out", immediateRender: true }, 0.48);
+
+          tl.fromTo("#s04-side", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.out" }, 0.5);
+
+          // svg-path-draw: extension lines, then each dimension line, then its label
+          const svg = document.getElementById("s04-svg");
+          svg.querySelectorAll("path").forEach((p) => {
+            const len = p.getTotalLength() * 1.02;
+            p.style.strokeDasharray = p.classList.contains("s04-ext") ? "10 8" : `${len}`;
+            if (!p.classList.contains("s04-ext")) p.style.strokeDashoffset = `${len}`;
+          });
+          const DRAW = 0.7;
+          [
+            { ext: ".s04-e1", dim: "#s04-len", lab: "#s04-l1", at: 1.5 },
+            { ext: ".s04-e2", dim: "#s04-wb", lab: "#s04-l2", at: 2.05 },
+            { ext: ".s04-e3", dim: "#s04-h", lab: "#s04-l3", at: 2.6 },
+          ].forEach((d) => {
+            tl.fromTo(d.ext, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, d.at - 0.15);
+            tl.to(d.dim, { strokeDashoffset: 0, duration: DRAW, ease: "power2.out" }, d.at);
+            tl.fromTo(d.lab, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power1.out" }, d.at + DRAW + 0.1);
+          });
+
+          // spec cards
+          gsap.utils.toArray(".s04-stat").forEach((el, i) => {
+            tl.fromTo(el, { scale: 0, opacity: 0, y: 18 }, { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 4.0 + i * 0.07);
+          });
+          tl.fromTo("#s04-note", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power1.out" }, 4.6);
+
+          // multi-phase-camera: gentle settle + slow push on the drawing
+          const cam = document.getElementById("s04-cam");
+          const phase = { scale: 0.96 };
+          tl.to(phase, { scale: 1.0, duration: 1.4, ease: "power2.out" }, 0.4);
+          tl.to(phase, { scale: 1.03, duration: 4.0, ease: "power2.inOut" }, 5.5);
+          const drift = { p: 0 };
+          tl.to(
+            drift,
+            {
+              p: Math.PI * 2,
+              duration: DUR,
+              ease: "none",
+              onUpdate: () => {
+                const dx = Math.sin(drift.p) * 4;
+                const dy = Math.sin(drift.p * 1.3) * 2;
+                cam.style.transform = `scale(${phase.scale}) translate(${dx}px, ${dy}px)`;
+              },
+            },
+            0,
+          );
+
+          window.__timelines["s04-dims"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

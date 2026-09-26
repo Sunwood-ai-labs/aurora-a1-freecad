@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        .hd {
+          position: absolute;
+          left: 110px;
+          top: 132px;
+          width: 1700px;
+        }
+        .hd-tag {
+          display: inline-block;
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 26px;
+          letter-spacing: 0.2em;
+          color: #a77bff;
+        }
+        .hd-h1 {
+          display: block;
+          font-size: 84px;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          margin-top: 6px;
+        }
+        .hd-sub {
+          display: block;
+          font-size: 34px;
+          color: #a49ebe;
+          margin-top: 10px;
+        }
+        #d06-rows {
+          position: absolute;
+          left: 110px;
+          top: 410px;
+          width: 1700px;
+        }
+        .row {
+          display: grid;
+          grid-template-columns: 70px 560px 1fr;
+          gap: 24px;
+          align-items: center;
+          padding: 20px 0;
+          border-bottom: 2px solid #2e2945;
+          transform-origin: 0% 50%;
+        }
+        .row .n {
+          font-family: "JetBrains Mono", monospace;
+          font-weight: 700;
+          font-size: 30px;
+          color: #a49ebe;
+        }
+        .row .iss {
+          font-size: 32px;
+          font-weight: 700;
+          color: #ff4fa3;
+        }
+        .row .fix {
+          font-size: 30px;
+        }
+        .row .fix code {
+          font-family: "JetBrains Mono", monospace;
+          color: #a77bff;
+          font-size: 28px;
+        }
+      </style>
+      <div data-hf-id="hf-tjdf" id="root" data-composition-id="s06-automate" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-0hws" class="hd">
+          <span data-hf-id="hf-vp2i" class="hd-tag" id="d06-tag">STEP 05</span>
+          <span data-hf-id="hf-l2vk" class="hd-h1" id="d06-h1">自動化</span>
+          <span data-hf-id="hf-qm75" class="hd-sub" id="d06-sub">つまずきを 1 つずつ潰し、make_drawings.py で全 11 枚を自動生成</span>
+        </div>
+        <div data-hf-id="hf-heox" id="d06-rows">
+          <div data-hf-id="hf-thy4" class="row"><span data-hf-id="hf-kp5a" class="n">01</span><span data-hf-id="hf-7wo5" class="iss">投影が 0 エッジのまま</span><span data-hf-id="hf-54b1" class="fix">隠線処理は別スレッド → Qt イベントを回して完了待ち</span></div>
+          <div data-hf-id="hf-lt04" class="row"><span data-hf-id="hf-l3gb" class="n">02</span><span data-hf-id="hf-wrhg" class="iss">PDF に図枠が出ない</span><span data-hf-id="hf-hlzf" class="fix">ページを GUI で開いてから <code data-hf-id="hf-xl5d">exportPageAsPdf</code></span></div>
+          <div data-hf-id="hf-km31" class="row"><span data-hf-id="hf-lhrc" class="n">03</span><span data-hf-id="hf-xa9h" class="iss">寸法が図に重なる・小数</span><span data-hf-id="hf-1l8s" class="fix">外形の外側へ配置、<code data-hf-id="hf-eaiu">FormatSpec = "%.0f"</code></span></div>
+          <div data-hf-id="hf-l0e2" class="row"><span data-hf-id="hf-ipm5" class="n">04</span><span data-hf-id="hf-b0ff" class="iss">90 秒でタイムアウト</span><span data-hf-id="hf-erpz" class="fix">シートをジェネレータ化し、呼び出しごとに段階実行</span></div>
+          <div data-hf-id="hf-mzx7" class="row"><span data-hf-id="hf-j3x6" class="n">05</span><span data-hf-id="hf-9bk6" class="iss">モノコックの輪郭が欠ける</span><span data-hf-id="hf-jf3v" class="fix"><code data-hf-id="hf-kwal">CoarseView = True</code>（多角形ベースの隠線処理）</span></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const F = 1 / 60;
+          tl.fromTo("#d06-tag", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.13, ease: "power4.out", immediateRender: true }, 0.15);
+          // tracking-in done with per-glyph x (transform), not letterSpacing (which snaps to pixels)
+          (function () {
+            const h = document.getElementById("d06-h1");
+            const chars = Array.from(h.textContent);
+            h.textContent = "";
+            chars.forEach((c) => { const g = document.createElement("span"); g.textContent = c; g.style.display = "inline-block"; h.appendChild(g); });
+            const gs = Array.from(h.children), mid = (gs.length - 1) / 2;
+            gs.forEach((g, i) => tl.fromTo(g, { x: (i - mid) * 30 }, { x: 0, duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18));
+          })();
+          tl.fromTo("#d06-h1", { opacity: 0, y: 26, filter: "blur(18px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.8, ease: "expo.out", immediateRender: true }, 0.18);
+          tl.fromTo("#d06-sub", { opacity: 0, y: 24, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out", immediateRender: true }, 0.5);
+          // one issue per beat (bar = 2 s), issue first then its fix
+          gsap.utils.toArray(".row").forEach((el, i) => {
+            const at = 1.0 + i * 2.0;
+            tl.fromTo(el, { scale: 0.7, opacity: 0, filter: "blur(12px)", y: 16 }, { scale: 1, opacity: 1, filter: "blur(0px)", y: 0, duration: 0.5, ease: "power3.out" }, at);
+            tl.fromTo(el.querySelector(".fix"), { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, at + 0.7);
+          });
+          window.__timelines["s06-automate"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

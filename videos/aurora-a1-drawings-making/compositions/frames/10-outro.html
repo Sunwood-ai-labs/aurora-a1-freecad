@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        #root {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          font-family: "Noto Sans JP", sans-serif;
+          color: #edeaf6;
+        }
+        #d10-fan {
+          position: absolute;
+          inset: 0;
+        }
+        .sh {
+          position: absolute;
+          width: 420px;
+          height: 297px;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+          transform-origin: 50% 50%;
+        }
+        #d10-scrim {
+          position: absolute;
+          left: -300px;
+          bottom: -420px;
+          width: 1600px;
+          height: 950px;
+          border-radius: 50%;
+          background: radial-gradient(closest-side, rgba(12, 11, 20, 0.95), rgba(12, 11, 20, 0));
+        }
+        #d10-text {
+          position: absolute;
+          left: 110px;
+          bottom: 110px;
+          width: 1300px;
+        }
+        #d10-flow {
+          display: flex;
+          gap: 18px;
+          align-items: baseline;
+          font-size: 36px;
+          font-weight: 700;
+        }
+        .w {
+          display: inline-block;
+          opacity: 0;
+        }
+        .w b {
+          font-family: "JetBrains Mono", monospace;
+          color: #a77bff;
+          font-size: 44px;
+        }
+        .ar {
+          color: #a49ebe;
+        }
+        #d10-name {
+          display: block;
+          font-size: 140px;
+          font-weight: 700;
+          letter-spacing: -0.03em;
+          line-height: 1;
+          margin-top: 58px;
+        }
+        #d10-name span {
+          color: #a77bff;
+        }
+        #d10-by {
+          display: block;
+          font-family: "JetBrains Mono", monospace;
+          font-size: 30px;
+          color: #a49ebe;
+          margin-top: 50px;
+        }
+        #d10-by b {
+          color: #edeaf6;
+        }
+        #d10-black {
+          position: absolute;
+          inset: 0;
+          background: #0c0b14;
+        }
+      </style>
+      <div data-hf-id="hf-c8nv" id="root" data-composition-id="s10-outro" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-r9tj" id="d10-fan" data-layout-allow-overflow="">
+          <img data-hf-id="hf-61gb" class="sh" src="assets/sheets/S01_GA.png" alt="">
+          <img data-hf-id="hf-klqj" class="sh" src="assets/sheets/S02_CL_Section.png" alt="">
+          <img data-hf-id="hf-nhfh" class="sh" src="assets/sheets/S03_FrontWing.png" alt="">
+          <img data-hf-id="hf-3epv" class="sh" src="assets/sheets/S04_RearWing.png" alt="">
+          <img data-hf-id="hf-o5ef" class="sh" src="assets/sheets/S05_Chassis.png" alt="">
+          <img data-hf-id="hf-tt7h" class="sh" src="assets/sheets/S06_Bodywork.png" alt="">
+          <img data-hf-id="hf-bupp" class="sh" src="assets/sheets/S07_Wheels.png" alt="">
+          <img data-hf-id="hf-eciv" class="sh" src="assets/sheets/S08_Suspension.png" alt="">
+          <img data-hf-id="hf-vf32" class="sh" src="assets/sheets/S09_PowerUnit.png" alt="">
+          <img data-hf-id="hf-gc2q" class="sh" src="assets/sheets/S10_BOM1.png" alt="">
+          <img data-hf-id="hf-z6g2" class="sh" src="assets/sheets/S11_BOM2.png" alt="">
+        </div>
+        <div data-hf-id="hf-6xqy" id="d10-scrim" data-layout-allow-overflow=""></div>
+        <div data-hf-id="hf-eqcg" id="d10-text">
+          <div data-hf-id="hf-9gsh" id="d10-flow">
+            <span data-hf-id="hf-yue8" class="w" id="d10-w1">A3 <b data-hf-id="hf-jk6v">11</b> 枚</span><span data-hf-id="hf-71fu" class="w ar" id="d10-a1">·</span>
+            <span data-hf-id="hf-xkp5" class="w" id="d10-w2">断面 <b data-hf-id="hf-py6s">9</b> 箇所</span><span data-hf-id="hf-tjxj" class="w ar" id="d10-a2">·</span>
+            <span data-hf-id="hf-m7fe" class="w" id="d10-w3">部品 <b data-hf-id="hf-58o9">84</b> 点</span>
+          </div>
+          <span data-hf-id="hf-efmu" id="d10-name">AURORA <span data-hf-id="hf-ta6b">A1</span> 図面</span>
+          <span data-hf-id="hf-xwzz" id="d10-by">Built with <b data-hf-id="hf-sgkk">Claude Code</b> × <b data-hf-id="hf-3qz9">FreeCAD MCP</b> · TechDraw</span>
+        </div>
+        <div data-hf-id="hf-n5ay" id="d10-black"></div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const F = 1 / 60;
+          // deterministic fan layout: two staggered rows across the upper-right of the frame
+          const POS = [
+            [560, 40, -6], [850, 30, 3], [1140, 60, -2], [1430, 40, 4], [700, 320, 4], [990, 300, -4],
+            [1280, 330, 2], [1520, 300, -3], [1350, 620, 3], [1560, 650, -5], [1450, 760, 2],
+          ];
+          gsap.utils.toArray(".sh").forEach((el, i) => {
+            const [x, y, r] = POS[i];
+            el.style.left = x + "px";
+            el.style.top = y + "px";
+            tl.fromTo(el, { scale: 0, opacity: 0, rotation: r * 3 }, { scale: 1, opacity: 1, rotation: r, duration: 0.6, ease: "power3.out" }, 0.4 + i * 0.045);
+          });
+          tl.fromTo("#d10-fan", { scale: 1 }, { scale: 1.06, duration: 9.0, ease: "power1.inOut" }, 0.6);
+          tl.fromTo("#d10-black", { opacity: 1 }, { opacity: 0, duration: 0.6, ease: "power2.out" }, 0);
+          tl.to("#d10-black", { opacity: 1, duration: 0.9, ease: "power1.in" }, 9.1);
+          tl.fromTo("#d10-scrim", { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "power1.out" }, 0.8);
+          let t = 1.4;
+          [["#d10-w1", 60, 0.18], ["#d10-a1", 36, 0.12], ["#d10-w2", 50, 0.16], ["#d10-a2", 36, 0.12], ["#d10-w3", 60, 0.18]].forEach(([sel, y, d]) => {
+            tl.set(sel, { opacity: 1, y }, t);
+            tl.to(sel, { y: 0, duration: d, ease: "power4.out" }, t);
+            t += d - F;
+          });
+          tl.fromTo("#d10-name", { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 0.22, ease: "expo.out", immediateRender: true }, 3.0);
+          tl.fromTo("#d10-by", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.16, ease: "power4.out", immediateRender: true }, 3.25);
+          window.__timelines["s10-outro"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
